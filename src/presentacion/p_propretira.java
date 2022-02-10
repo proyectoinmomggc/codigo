@@ -187,13 +187,7 @@ public class p_propretira extends javax.swing.JFrame {
 
         try {
             //controlar campos
-            if(txtpropid.getText().equals("")){
-                return;
-            }
-            if (prop == null) {
-                JOptionPane.showMessageDialog(this, toUpperCase("propietario no existe"), "ERROR", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
+            controlar_prop();
             mov.setProp_id(Integer.parseInt(txtpropid.getText()));
             mov.setDetalle(devuelvedetalle());
             mov.setSalida(con.guardarnumero((txtsalida.getText())));
@@ -304,28 +298,46 @@ public class p_propretira extends javax.swing.JFrame {
         lblnombre.setText("-");
         lblsaldo.setText("-");
         try {
-            if (txtpropid.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, toUpperCase("debe ingresar un id de propietario"), "ERROR", JOptionPane.ERROR_MESSAGE);
-                lblnombre.setText("-");
-                lblsaldo.setText("-");
-                return;
-            }
-            prop = new d_propietario();
-            nroprin = Integer.parseInt(txtpropid.getText());
-            prop = prop.buscarpropietario(nroprin);
-            if (prop != null) {
-                con.guardarprimermovimiento(prop);
-                lblnombre.setText(prop.getProp_nombre());
-                actualizarsaldoprop();
-                lblsaldo.setText(con.mostrarnumero((prop.getProp_saldo())));
-            } else {
-                JOptionPane.showMessageDialog(this, toUpperCase("propietario no existe"), "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
+            controlar_prop();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 
+    void controlar_prop() throws Exception {
+        p_control con = p_control.getInstancia();
+        Integer nroprin = -1;
+
+        prop = new d_propietario();
+
+        if (txtpropid.getText().equals("")) {
+            lblnombre.setText("-");
+            throw new Exception("debe ingresar un id de propietario");
+        }
+
+        nroprin = Integer.parseInt(txtpropid.getText());
+        prop = prop.buscarpropietario(nroprin);
+        if (prop != null) {
+            con.guardarprimermovimiento(prop);
+            lblnombre.setText(prop.getProp_nombre());
+            actualizarsaldoprop();
+            lblsaldo.setText(con.mostrarnumero(prop.getProp_saldo()));
+            con.prop = null;
+        } else {
+            prop = null;
+            limpiar_campos();
+            throw new Exception("propietario no existe");
+        }
+    }
+    
+    void limpiar_campos(){
+        lblnombre.setText("-");
+        lblsaldo.setText("-");
+        cargarfecha();
+        txtsalida.setText("");
+        txtdetalle.setText("");
+    }
+    
     Float buscarsaldoprop(Integer id) throws Exception {
         d_propietario pro1 = null;
 

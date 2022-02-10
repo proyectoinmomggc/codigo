@@ -270,28 +270,34 @@ public class p_gastocta_inq extends javax.swing.JDialog {
     void funcbuscar() {
         p_control con = p_control.getInstancia();
         inq = new d_inquilino();
-        d_propietario prop1 = new d_propietario();
-        Integer prop_id = 0;
-        Integer inq_id = 0;
 
         lblnombreinq.setText("-");
 
         try {
-            prop_id = Integer.parseInt(txtpropid.getText());
-            inq_id = Integer.parseInt(txtinqcasa.getText());
-            inq = inq.buscarinquilino(prop_id, inq_id);
-            if (inq == null) {
-                JOptionPane.showMessageDialog(this, toUpperCase("inquilino no existe"), "ERROR", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            prop1 = prop1.buscarpropietario(inq.getProp_id());
-            if (prop1 != null) {
-                con.guardarprimermovimiento(prop1);
-            }
-            lblnombreinq.setText(inq.getInq_nombre());
+            controlar_inq();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    void controlar_inq() throws Exception {
+        p_control con = p_control.getInstancia();
+        d_propietario prop1 = new d_propietario();
+        Integer prop_id = 0;
+        Integer inq_id = 0;
+
+        prop_id = Integer.parseInt(txtpropid.getText());
+        inq_id = Integer.parseInt(txtinqcasa.getText());
+        inq = inq.buscarinquilino(prop_id, inq_id);
+        if (inq == null) {
+            limpiarcampos();
+            throw new Exception("inquilino no existe");
+        }
+        prop1 = prop1.buscarpropietario(inq.getProp_id());
+        if (prop1 != null) {
+            con.guardarprimermovimiento(prop1);
+        }
+        lblnombreinq.setText(inq.getInq_nombre());
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -303,14 +309,7 @@ public class p_gastocta_inq extends javax.swing.JDialog {
 
         try {
             //controlar campos
-            if (inq == null) {
-                JOptionPane.showMessageDialog(this, toUpperCase("inquilino no existe"), "ERROR", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            prop1 = prop1.buscarpropietario(inq.getProp_id());
-            if (prop1 != null) {
-                con.guardarprimermovimiento(prop1);
-            }
+            controlar_inq();
             gas.setProp_id(inq.getProp_id());
             gas.setInq_casa(inq.getInq_casa());
             importe = con.guardarnumero(txtimporte.getText());
@@ -339,9 +338,9 @@ public class p_gastocta_inq extends javax.swing.JDialog {
                     int ax1 = JOptionPane.showConfirmDialog(null, toUpperCase("el gasto ingresado tiene una fecha anterior a la fecha de inicio del contrato, ¿desea continuar?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
                     if (ax1 == JOptionPane.YES_OPTION) {
                         gas.guardargastoinq(gas);
-                        
-                        con.escribirfichero("INQ - se ingresa gasto a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa()+" -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()));
-                        
+
+                        con.escribirfichero("INQ - se ingresa gasto a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa() + " -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()));
+
                         //ACTUALIZA EL SALDO ACTUAL DEL INQUILINO
                         if (aplicaactualizarsaldo(gas.getMqp(), gas.getAqp())) {
                             inq.actualizarsaldo(inq.getProp_id(), inq.getInq_casa(), (inq.getInq_saldo() + importe));
@@ -352,7 +351,7 @@ public class p_gastocta_inq extends javax.swing.JDialog {
                     }
                 } else {
                     gas.guardargastoinq(gas);
-                    con.escribirfichero("INQ - se ingresa gasto a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa()+" -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()));
+                    con.escribirfichero("INQ - se ingresa gasto a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa() + " -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()));
                     //ACTUALIZA EL SALDO ACTUAL DEL INQUILINO
                     //CHEQUEAR QUE SI ES DEL MES ACTUAL NO SUMAR A LA DEUDA
                     if (aplicaactualizarsaldo(gas.getMqp(), gas.getAqp())) {
@@ -402,8 +401,7 @@ public class p_gastocta_inq extends javax.swing.JDialog {
         lblnombreinq.setText("-");
         txtdetalle.setText("");
         txtimporte.setText("");
-        txtaqp.setText("");
-        txtmqp.setText("");
+        cargarmqpaqp();
         lblnombreinq.setText("-");
         inq = null;
     }
