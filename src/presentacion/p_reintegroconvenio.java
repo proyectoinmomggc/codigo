@@ -358,30 +358,40 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         lblnombreinq.setText("-");
 
         try {
-            prop_id = Integer.parseInt(txtpropid.getText());
-            inq_id = Integer.parseInt(txtinqcasa.getText());
-            inq = inq.buscarinquilino(prop_id, inq_id);
-            if (inq == null) {
-                JOptionPane.showMessageDialog(this, toUpperCase("inquilino no existe"), "ERROR", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            prop1 = prop1.buscarpropietario(inq.getProp_id());
-            if (prop1 != null) {
-                con.guardarprimermovimiento(prop1);
-            }
-            lblnombreinq.setText(inq.getInq_nombre());
+            controlar_inq();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 
+    void controlar_inq() throws Exception {
+        p_control con = p_control.getInstancia();
+        inq = new d_inquilino();
+        d_propietario prop1 = new d_propietario();
+        Integer prop_id = 0;
+        Integer inq_id = 0;
+
+        prop_id = Integer.parseInt(txtpropid.getText());
+        inq_id = Integer.parseInt(txtinqcasa.getText());
+        inq = inq.buscarinquilino(prop_id, inq_id);
+        if (inq == null) {
+            limpiarcampos();
+            throw new Exception("inquilino no existe");
+        }
+        prop1 = prop1.buscarpropietario(inq.getProp_id());
+        if (prop1 != null) {
+            con.guardarprimermovimiento(prop1);
+        }
+        lblnombreinq.setText(inq.getInq_nombre());
+    }
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         List<d_gastos_inq> lista = new ArrayList<>();
         p_control con = p_control.getInstancia();
-        d_propietario prop1 = new d_propietario();
 
         try {
             //controlar campos
+            controlar_inq();
             diferenciameses = 0;
             detalletipo = "";
             importemostrar = 0f;
@@ -389,15 +399,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, toUpperCase("no hay un monto de importe ingresado"), "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if (inq == null) {
-                JOptionPane.showMessageDialog(this, toUpperCase("inquilino no existe"), "ERROR", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
             controlarclave();
-            prop1 = prop1.buscarpropietario(inq.getProp_id());
-            if (prop1 != null) {
-                con.guardarprimermovimiento(prop1);
-            }
 
             lista = generarlistado();
             if (lista.isEmpty()) {
@@ -406,7 +408,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
             int i = 0;
             Boolean guarda;
             int ax = JOptionPane.showConfirmDialog(null,
-                    "¿DESEA INGRESAR " + diferenciameses + " " + detalletipo +"/S" + " CON IMPORTE $: "
+                    "¿DESEA INGRESAR " + diferenciameses + " " + detalletipo + "/S" + " CON IMPORTE $: "
                     + con.mostrarnumero(importemostrar), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
             if (ax == JOptionPane.YES_OPTION) {
                 for (d_gastos_inq aux : lista) {
@@ -451,9 +453,9 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         if (importe == 0f) {
             throw new Exception("EL IMPORTE DEBE SER MAYOR A 0");
         }
-        
+
         importemostrar = importe;
-        
+
         String detalle = (String) cmbtipo.getSelectedItem();
         if (detalle.equals("REINTEGRO")) {
             importe = Math.abs(importe) * -1;
@@ -476,7 +478,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
 
         diferenciameses = i;
         detalletipo = detalle;
-        
+
         return lista;
     }
 
@@ -539,13 +541,13 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
             int ax1 = JOptionPane.showConfirmDialog(null, toUpperCase("el " + gas.getDetalle() + " ingresado " + gas.getMqp() + "/" + gas.getAqp() + " es anterior a la fecha de inicio del contrato, ¿desea continuar?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
             if (ax1 == JOptionPane.YES_OPTION) {
                 gas.guardargastoinq(gas);
-                con.escribirfichero("INQ - se ingresa reint conv a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa()+" -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte())+ " -- estado: " +(gas.getEstado()));
+                con.escribirfichero("INQ - se ingresa reint conv a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa() + " -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()) + " -- estado: " + (gas.getEstado()));
             } else {
                 return false;
             }
         } else {
             gas.guardargastoinq(gas);
-            con.escribirfichero("INQ - se ingresa reint conv a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa()+" -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte())+ " -- estado: " +(gas.getEstado()));
+            con.escribirfichero("INQ - se ingresa reint conv a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa() + " -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()) + " -- estado: " + (gas.getEstado()));
         }
         return true;
     }
@@ -634,8 +636,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         lblnombreinq.setText("-");
 
         txtimporte.setText("");
-        txtmqp1.setText("");
-        txtmqp.setText("");
+        cargarmqpaqp();
         txtclave.setText("");
         lblnombreinq.setText("-");
         inq = null;

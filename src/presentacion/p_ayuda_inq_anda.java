@@ -9,6 +9,7 @@ import dominio.d_alquileres_anda;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
@@ -29,7 +30,7 @@ public class p_ayuda_inq_anda extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-
+        jLabel1.setIcon(new ImageIcon("ayuda.JPG"));
     }
 
     /**

@@ -136,3 +136,27 @@ PROP - se actualiza saldo a cuenta id prop: 600 -- total: -62075.48
 [16:27:09 10/02/2022]
 INQ - se ingresa gasto a cuenta id prop: 309 -- id inq: 1 -- mqp: 2 -- aqp: 2022 -- detalle: SALDO ALQUILER -- importe: 213.321,00
 ------------------------------------------------------------------------
+[21:46:46 10/02/2022]
+PROP - se actualiza saldo a cuenta id prop: 591 -- total: 0.0
+------------------------------------------------------------------------
+[21:46:53 10/02/2022]
+PROP - se actualiza saldo a cuenta id prop: 591 -- total: 0.0
+------------------------------------------------------------------------
+[21:46:58 10/02/2022]
+PROP - se ingresa pago (entrada), id prop: 591 -- detalle: det -- entrada: 200,00 -- tipo de pago: CAJA -- fecha: 10/02/2022
+------------------------------------------------------------------------
+[21:46:58 10/02/2022]
+PROP - se actualiza saldo a cuenta id prop: 591 -- total: 200.0
+------------------------------------------------------------------------
+[21:47:06 10/02/2022]
+PROP - se actualiza saldo a cuenta id prop: 591 -- total: 200.0
+------------------------------------------------------------------------
+[22:02:31 10/02/2022]
+INQ - se ingresa reint conv a cuenta id prop: 500 -- id inq: 1 -- mqp: 2 -- aqp: 2022 -- detalle: REINTEGRO -- importe: -500,00 -- estado: 2
+------------------------------------------------------------------------
+[22:04:12 10/02/2022]
+INQ - se ingresa reint conv a cuenta id prop: 309 -- id inq: 1 -- mqp: 1 -- aqp: 2022 -- detalle: REINTEGRO -- importe: -800,00 -- estado: 2
+------------------------------------------------------------------------
+[22:07:52 10/02/2022]
+INQ - se ingresa reint conv a cuenta id prop: 309 -- id inq: 1 -- mqp: 2 -- aqp: 2022 -- detalle: REINTEGRO -- importe: -800,00 -- estado: 2
+------------------------------------------------------------------------
