@@ -54,8 +54,8 @@ public class p_inquilinos {
         c.close();
         return idretorno;
     }
-    
-    public static Date devuelve_fecha_ic(Integer prop_id,Integer inq_casa) throws Exception {
+
+    public static Date devuelve_fecha_ic(Integer prop_id, Integer inq_casa) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
         c = conex.crearconexion();
@@ -317,10 +317,10 @@ public class p_inquilinos {
             st = c.createStatement();
             Integer mes = devuelvemes(new Date());
             Integer anio = devuelveanio(new Date());
-            String fecha_filtro = (mes+""+anio);
-            res = st.executeQuery("select prop_id, inq_casa,count(*) as total_meses,sum(importe)as total_importe from gastos_inq where (concat(mqp,aqp)!='"+fecha_filtro+"') and \n" +
-"(detalle='SALDO ALQUILER' or detalle='ALQUILER MES' or detalle='ALQUILER') \n" +
-" and estado=0 group by prop_id, inq_casa order by prop_id");
+            String fecha_filtro = (mes + "" + anio);
+            res = st.executeQuery("select prop_id, inq_casa,count(*) as total_meses,sum(importe)as total_importe from gastos_inq where (concat(mqp,aqp)!='" + fecha_filtro + "') and \n"
+                    + "(detalle='SALDO ALQUILER' or detalle='ALQUILER MES' or detalle='ALQUILER') \n"
+                    + " and estado=0 group by prop_id, inq_casa order by prop_id");
             while (res.next()) {
                 gas = new d_gastos_inq();
                 gas.setProp_id(Integer.parseInt(res.getString("prop_id")));
@@ -349,7 +349,7 @@ public class p_inquilinos {
         SimpleDateFormat dateFormat = new SimpleDateFormat(formato);
         return Integer.parseInt(dateFormat.format(fecha));
     }
-    
+
     public static Date buscarfechareajusteoriginal(Integer prop_id, Integer inq_casa) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
@@ -625,6 +625,46 @@ public class p_inquilinos {
             throw new Exception(ex.getMessage());
         }
         c.close();
+    }
+
+    public static void bloquear_inquilino(Integer prop_id, Integer inq_casa) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        Statement st;
+
+        try {
+            st = c.createStatement();
+            st.execute("update inquilinos set bloqueado = 1 where prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "'");
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        c.close();
+    }
+    
+    public static Boolean inquilino_bloqueado(Integer prop_id, Integer inq_casa) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        ResultSet res;
+        Statement st;
+        Integer bloqueado = 0;
+
+        try {
+            st = c.createStatement();
+            res = st.executeQuery("Select bloqueado From inquilinos where prop_id=" + prop_id + " and inq_casa=" + inq_casa);
+            while (res.next()) {
+                bloqueado = (res.getInt("bloqueado"));
+                if (bloqueado == 1) {
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        res.close();
+        c.close();
+        return false;
     }
 
     public static java.sql.Date ASqlDate(java.util.Date fecha) {

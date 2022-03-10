@@ -406,4 +406,12 @@ public class d_inquilino {
     public void actualizarfechareajuste(Integer prop_id, Integer inq_casa, Date fecha) throws Exception {
         p_inquilinos.actualizarfechareajuste(prop_id, inq_casa, fecha);
     }
+    
+    public Boolean inquilino_bloqueado(Integer prop_id, Integer inq_casa) throws Exception {
+        return p_inquilinos.inquilino_bloqueado(prop_id, inq_casa);
+    }
+    
+    public void bloquear_inquilino(Integer prop_id, Integer inq_casa) throws Exception {
+        p_inquilinos.bloquear_inquilino(prop_id, inq_casa);
+    }
 }
