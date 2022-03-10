@@ -60,6 +60,7 @@ public final class p_pruebaexcel extends javax.swing.JFrame {
     String inquilinossindatosensistema = "";
     String inquilinossindatosenexcel = "";
     String movimientosnodgi = "";
+    String movimientoinqbloq = "";
     String fecha = "";
     String fechamov = "";
     Float totalentrada = 0f;
@@ -278,6 +279,7 @@ public final class p_pruebaexcel extends javax.swing.JFrame {
         // TODO add your handling code here:
         d_alquileres_anda inq = null;
         d_inquilino o = new d_inquilino();
+        d_inquilino y = new d_inquilino();
         Vector v;
 
         lblruta.setText("-");
@@ -329,6 +331,15 @@ public final class p_pruebaexcel extends javax.swing.JFrame {
                 }
                 inq = existeinq(getCellData(id_anda));
                 if (inq != null) {
+
+                    y = y.buscarinquilino(inq.getProp_id(), inq.getInq_casa());
+                    if (y != null) {
+                        if (y.inquilino_bloqueado(y.getProp_id(), y.getInq_casa())) {
+                            agregar_inq_bloqueado(y.getProp_id(), y.getInq_casa(), y.getInq_nombre());
+                            continue;
+                        }
+                    }
+
                     llenarlistadoexcel(inq);
                     Float entrada = 0f;
                     float salida = 0f;
@@ -398,11 +409,31 @@ public final class p_pruebaexcel extends javax.swing.JFrame {
             lbltotal.setText(con.mostrarnumero(totalentrada));
             mostrarinquilinosnoingresadosensistema();
             mostrarinquilinosnoingresadosenexcel();
+            mostrarinquilinosbloqueados();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnarchActionPerformed
 
+    void agregar_inq_bloqueado(Integer prop_id, Integer inq_casa, String nombre) {
+        //buscarnombreinquilino
+        movimientoinqbloq = movimientoinqbloq + prop_id + " - " + inq_casa + " | " + nombre + " | NO SE INGRESO POR ESTAR BLOQUEADO";
+    }
+
+    void mostrarinquilinosbloqueados() {
+        if (movimientoinqbloq.equals("")) {
+            return;
+        }
+        JTextArea textArea = new JTextArea(movimientoinqbloq);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        textArea.setEditable(false);
+        scrollPane.setPreferredSize(new Dimension(500, 500));
+        JOptionPane.showMessageDialog(null, scrollPane, "REPORTE DE INQUILINOS BLOQUEADOS",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+    
     void llenarlistadoenbase() throws Exception {
         d_alquileres_anda inq = new d_alquileres_anda();
 
@@ -1189,6 +1220,7 @@ class avanzado implements Runnable {
                 listamovimientosparadgi = new ArrayList();
                 btningresar.setEnabled(false);
                 lbldetalle.setText("PROCESANDO PAGOS DE ALQUILERES");
+                d_inquilino inq = new d_inquilino();
 
                 int prop_id;
                 int inq_casa;
@@ -1205,6 +1237,16 @@ class avanzado implements Runnable {
 
                     prop_id = Integer.parseInt(tblinquilinos.getValueAt(i, 1).toString());//0
                     inq_casa = Integer.parseInt(tblinquilinos.getValueAt(i, 2).toString());//1
+
+                    /*
+                    inq = inq.buscarinquilino(prop_id, inq_casa);
+                    if (inq != null) {
+                        if (inq.inquilino_bloqueado(prop_id, inq_casa)) {
+                            agregar_inq_bloqueado(inq.getProp_id(), inq.getInq_casa(), inq.getInq_nombre());
+                            return;
+                        }
+                    }
+                     */
                     importeentrada = con.guardarnumero(((String) tblinquilinos.getValueAt(i, 5)));//4
                     importesalida = con.guardarnumero(((String) tblinquilinos.getValueAt(i, 6)));//5
 
@@ -1296,7 +1338,7 @@ class avanzado implements Runnable {
         }
 
         JScrollPane devuelvescrollnodgi() {
-            JTextArea textArea = new JTextArea(movimientosnodgi);
+            JTextArea textArea = new JTextArea(movimientosnodgi + "\n" + movimientoinqbloq);
             JScrollPane scrollPane = new JScrollPane(textArea);
             textArea.setLineWrap(true);
             textArea.setWrapStyleWord(true);

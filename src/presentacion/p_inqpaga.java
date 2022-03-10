@@ -409,6 +409,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             inq_id = Integer.parseInt(txtinq_id.getText());
             inq1 = inq1.buscarinquilino(prop_id, inq_id);
             if (inq != null) {
+                //CHEQUEAR_ESTADO
                 prop1 = prop1.buscarpropietario(inq.getProp_id());
                 if (prop1 != null) {
                     con.guardarprimermovimiento(prop1);
@@ -795,6 +796,13 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         //String dia = "01/";
 
         try {
+            if (inq != null) {
+                if(inq.inquilino_bloqueado(inq.getProp_id(), inq.getInq_casa())){
+                    throw new Exception("no puede abonar, el inquilino esta bloqueado\n"
+                            + "si desea desbloquear, debe hacerlo desde la ficha de inquilino");
+                }
+            }
+            
             quiereimprimir = false;
             listamovimientos = null;
             aplicoconvenioreintegro = false;
