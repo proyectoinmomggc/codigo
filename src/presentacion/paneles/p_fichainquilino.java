@@ -13,6 +13,7 @@ import dominio.d_movimiento;
 import dominio.d_parametro;
 import dominio.d_propietario;
 import interfaces.observador_inq;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -53,7 +54,37 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         //jdcfechaic.setEnabled(false);
         cargarinquilinodefinido();
         cargarinquilino();
+
         caract.setText(String.valueOf(cant_caract_observaciones()) + "/255");
+    }
+
+    void cargar_estado() {
+        d_inquilino inq1 = new d_inquilino();
+
+        if (inq == null) {
+            return;
+        }
+        try {
+            inq1 = inq1.buscarinquilino(Integer.parseInt(txtnroprin.getText()), Integer.parseInt(txtcasainq.getText()));
+            if (inq1 != null) {
+                if (inq1.inquilino_bloqueado(Integer.parseInt(txtnroprin.getText()), Integer.parseInt(txtcasainq.getText()))) {
+                    //lblestado.setBackground(Color.GREEN);
+                    lblestado.setText("BLOQUEADO");
+                    bloqueado_button.setText("DESBLOQUEAR");
+                } else {
+                    lblestado.setText("HABILITADO");
+                    bloqueado_button.setText("BLOQUEAR");
+                }
+            } 
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, toUpperCase(e.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    void resetear_estado() {
+        lblestado.setText("ESTADO");
+        bloqueado_button.setText("BLOQ / DESBLOQ");
     }
 
     void cargarinquilinodefinido() {
@@ -121,6 +152,9 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         lblnombreprop = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblestado = new javax.swing.JLabel();
+        bloqueado_button = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -197,7 +231,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         caract.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         caract.setText("0/255");
         getContentPane().add(caract);
-        caract.setBounds(140, 500, 70, 17);
+        caract.setBounds(140, 540, 70, 17);
 
         txtplazoinq.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtplazoinq);
@@ -387,7 +421,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         txtobservaciones.setColumns(20);
         txtobservaciones.setLineWrap(true);
         txtobservaciones.setRows(5);
-        txtobservaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtobservaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtobservaciones.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtobservacionesFocusGained(evt);
@@ -407,7 +441,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jScrollPane2.setViewportView(txtobservaciones);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(10, 520, 430, 130);
+        jScrollPane2.setBounds(10, 560, 430, 130);
 
         btnactualizarimporte1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnactualizarimporte1.setText("FUNCION MENSUAL");
@@ -422,7 +456,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel18.setText("OBSERVACIONES");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(10, 500, 130, 17);
+        jLabel18.setBounds(10, 540, 130, 17);
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel19.setText("ID INQ");
@@ -434,6 +468,24 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         lblnombreprop.setOpaque(true);
         getContentPane().add(lblnombreprop);
         lblnombreprop.setBounds(190, 40, 250, 30);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ESTADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+
+        lblestado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblestado.setText("ESTADO");
+        jPanel1.add(lblestado);
+
+        bloqueado_button.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        bloqueado_button.setText("BLOQ / DESBLOQ");
+        bloqueado_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bloqueado_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bloqueado_button);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(450, 330, 195, 100);
 
         jMenu1.setText("LISTADO");
 
@@ -449,7 +501,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 671, 724);
+        setBounds(0, 0, 671, 764);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txttelinqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttelinqActionPerformed
@@ -1422,6 +1474,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
 
     private void btnbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar1ActionPerformed
         try {
+            resetear_estado();
             jdcfechaic.setEnabled(false);
             //lblnombreprop.setText("");
             obtenerid();
@@ -1598,6 +1651,31 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         caract.setText(String.valueOf(cant_caract_observaciones()) + "/255");
     }//GEN-LAST:event_txtobservacionesFocusLost
 
+    private void bloqueado_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloqueado_buttonActionPerformed
+        if (inq == null) {
+            return;
+        }
+
+        try {
+            if (inq.inquilino_bloqueado(inq.getProp_id(), inq.getInq_casa())) {
+                //ESTA BLOQUEADO
+                int ax = JOptionPane.showConfirmDialog(null, toUpperCase("¿desea desbloquear éste inquilino?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
+                if (ax == JOptionPane.YES_OPTION) {
+                    inq.desbloquear_inquilino(inq.getProp_id(), inq.getInq_casa());
+                }
+            } else {
+                //ESTA DESBLOQUEADO
+                int ax = JOptionPane.showConfirmDialog(null, toUpperCase("¿desea bloquear éste inquilino?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
+                if (ax == JOptionPane.YES_OPTION) {
+                    inq.bloquear_inquilino(inq.getProp_id(), inq.getInq_casa());
+                }
+            }
+            cargar_estado();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_bloqueado_buttonActionPerformed
+
     int cant_caract_observaciones() {
         if (txtobservaciones.getText().equals("")) {
             return 0;
@@ -1634,6 +1712,9 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
                 txtobservaciones.setText(inq.getInq_observaciones());
                 cmbirpf.setSelectedItem(inq.getInq_irpf());
                 lblirpf.setText(inq.getInq_irpf());
+
+                cargar_estado();
+
                 con.inq = null;
             }
         } catch (Exception e) {
@@ -1878,6 +1959,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bloqueado_button;
     private javax.swing.JButton btnactualizarimporte;
     private javax.swing.JButton btnactualizarimporte1;
     private javax.swing.JButton btnbuscar;
@@ -1906,10 +1988,12 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private com.toedter.calendar.JDateChooser jdcarlmrl;
     private com.toedter.calendar.JDateChooser jdcfechaic;
+    private javax.swing.JLabel lblestado;
     private javax.swing.JLabel lblirpf;
     private javax.swing.JLabel lblnombreprop;
     private javax.swing.JLabel lbltipo;

@@ -414,4 +414,8 @@ public class d_inquilino {
     public void bloquear_inquilino(Integer prop_id, Integer inq_casa) throws Exception {
         p_inquilinos.bloquear_inquilino(prop_id, inq_casa);
     }
+    
+    public void desbloquear_inquilino(Integer prop_id, Integer inq_casa) throws Exception {
+        p_inquilinos.desbloquear_inquilino(prop_id, inq_casa);
+    }
 }

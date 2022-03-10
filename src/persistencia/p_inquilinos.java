@@ -642,6 +642,21 @@ public class p_inquilinos {
         c.close();
     }
     
+    public static void desbloquear_inquilino(Integer prop_id, Integer inq_casa) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        Statement st;
+
+        try {
+            st = c.createStatement();
+            st.execute("update inquilinos set bloqueado = 0 where prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "'");
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        c.close();
+    }
+    
     public static Boolean inquilino_bloqueado(Integer prop_id, Integer inq_casa) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
