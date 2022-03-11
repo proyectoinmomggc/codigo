@@ -273,6 +273,37 @@ public class p_inquilinos {
         return lista;
 
     }
+    
+    public static List<d_inquilino> listarinquilinosbloqueados() throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        d_inquilino inq = null;
+        Statement st;
+        ResultSet res;
+        List<d_inquilino> lista = new ArrayList<d_inquilino>();
+
+        try {
+            st = c.createStatement();
+            res = st.executeQuery("select * from inquilinos where bloqueado = 1 order by inq_nombre");
+            while (res.next()) {
+                inq = new d_inquilino();
+                inq.setProp_id(Integer.parseInt(res.getString("prop_id")));
+                inq.setInq_casa(Integer.parseInt(res.getString("inq_casa")));
+                inq.setInq_nombre(res.getString("inq_nombre"));
+                inq.setInq_direccion(res.getString("inq_direccion"));
+                inq.setInq_tel(Integer.parseInt(res.getString("inq_tel")));
+                inq.setInq_observaciones(res.getString("inq_observaciones"));
+                lista.add(inq);
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        res.close();
+        c.close();
+        return lista;
+
+    }
 
     public static List<d_inquilino> listarinquilinospordireccion() throws Exception {
         Connection c;

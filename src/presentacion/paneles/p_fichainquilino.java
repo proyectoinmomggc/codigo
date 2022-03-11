@@ -1662,12 +1662,14 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
                 int ax = JOptionPane.showConfirmDialog(null, toUpperCase("¿desea desbloquear éste inquilino?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (ax == JOptionPane.YES_OPTION) {
                     inq.desbloquear_inquilino(inq.getProp_id(), inq.getInq_casa());
+                    con.escribirfichero("INQ - se desbloquea id prop: " + inq.getProp_id() + " -- id inq.: " + inq.getInq_casa());
                 }
             } else {
                 //ESTA DESBLOQUEADO
                 int ax = JOptionPane.showConfirmDialog(null, toUpperCase("¿desea bloquear éste inquilino?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
                 if (ax == JOptionPane.YES_OPTION) {
                     inq.bloquear_inquilino(inq.getProp_id(), inq.getInq_casa());
+                    con.escribirfichero("INQ - se bloquea id prop: " + inq.getProp_id() + " -- id inq.: " + inq.getInq_casa());
                 }
             }
             cargar_estado();

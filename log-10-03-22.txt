@@ -73,3 +73,6 @@ PROP - se ingresa pago (entrada), id prop: 117 -- detalle: e2e2qq -- entrada: 2.
 [14:44:21 10/03/2022]
 PROP - se actualiza saldo a cuenta id prop: 117 -- total: -13982.37
 ------------------------------------------------------------------------
+[22:55:08 10/03/2022]
+INQ - se bloquea id prop: 309 -- id inq.: 1
+------------------------------------------------------------------------
