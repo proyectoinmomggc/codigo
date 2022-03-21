@@ -16,7 +16,6 @@
     <system systemId="file:/C:/Users/gonza/AppData/Roaming/NetBeans/8.2/config/WebServices/Sicfe-wsdl/catalog/Sicfe.wsdl" uri="wsdl/Sicfe.wsdl"/>
     <system systemId="file:/C:/Users/gonza/AppData/Roaming/NetBeans/8.2/config/WebServices/Sicfe-prod-wsdl/catalog/Sicfe-prod.wsdl" uri="xml-resources/web-service-references/Sicfe-prod/wsdl/Sicfe-prod.wsdl"/>
     <system systemId="file:/C:/Users/gonza/AppData/Roaming/NetBeans/8.2/config/WebServices/Sicfe-test-wsdl/catalog/Sicfe-test.wsdl" uri="xml-resources/web-service-references/Sicfe-test/wsdl/Sicfe-test.wsdl"/>
-    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd1" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd1.xsd"/>
     <system systemId="http://sicfe.eborne.com.uy/PROD/Services/Sicfe.svc?wsdl" uri="wsdl/sicfe.eborne.com.uy/PROD/Services/Sicfe.svc.wsdl"/>
     <system systemId="http://sicfe.eborne.com.uy/PROD/Services/sicfe.svc?xsd=xsd0" uri="wsdl/sicfe.eborne.com.uy/PROD/Services/sicfe.svc.xsd_xsd0.xsd"/>
     <system systemId="http://sicfe.eborne.com.uy/PROD/Services/sicfe.svc?xsd=xsd1" uri="wsdl/sicfe.eborne.com.uy/PROD/Services/sicfe.svc.xsd_xsd1.xsd"/>
@@ -24,6 +23,7 @@
     <system systemId="http://sicfe.eborne.com.uy/PROD/Services/sicfe.svc?xsd=xsd3" uri="wsdl/sicfe.eborne.com.uy/PROD/Services/sicfe.svc.xsd_xsd3.xsd"/>
     <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc?wsdl" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc.wsdl"/>
     <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd0" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd0.xsd"/>
+    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd1" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd1.xsd"/>
     <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd2" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd2.xsd"/>
     <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd3" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd3.xsd"/>
 </catalog>

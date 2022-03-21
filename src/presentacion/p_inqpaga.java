@@ -3811,8 +3811,11 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         d_movimiento mov = null;
         inq.setArlmrl(ajustarreajuste(inq.getArlmrl()));
         Date fechareajusteanual = inq.getArlmrl();
+        Boolean importeingresado = false;
         Boolean esCN = false;
-
+        //if (inq.getProp_id() == 221 && inq.getInq_casa() == 17) {
+        //float a = 5f;
+        //}
         String fecharecorrida = "01/01/" + devuelveanio(new Date());
         Date fecharecorridadate = parsefechadate(fecharecorrida);
 
@@ -3826,9 +3829,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         mov = buscarultimoimporteantesdelreajuste(inq);
 
         if (mov != null) {
-
             total = mov.getEntrada();
-
             fecharecorrida = "01/" + mov.getMqp() + "/" + mov.getAqp();
             fecharecorridadate = parsefechadate(fecharecorrida);
             fechareajusteanual = sumar1mes(fecharecorridadate);
@@ -3836,22 +3837,28 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             inq.setArlmrl(fechareajusteanual);
             //inq.setArlmrl(chequearreajusteanteriorafechaactualsololocales(inq.getArlmrl()));
             //fechareajusteanual = inq.getArlmrl();
-        } else {
-            //ingresarimporteamano(inq);
-        }
+        } //else {
+        //ingresarimporteamano(inq);
+        //}
 
         alq = alq.buscar_alquiler_info(inq.getProp_id(), inq.getInq_casa());
         if (alq != null) {
-            //mostrar label, si no hay datos, borrar label
+            importeingresado = true;
             total = alq.getImporte();
             if (alq.getDetalle().equals("CN")) {
                 esCN = true;
             }
         }
 
+        if (mov == null && !importeingresado) {
+            //ingresarimporteamano(inq);
+        }
+
         String fechaactual = "01/" + devuelvemes(new Date()) + "/" + devuelveanio(new Date());
         Date fechaactualdate = parsefechadate(fechaactual);
         //VA HASTA UN MES ANTES DEL MES ACTUAL, YA QUE PARA CONTROLAR MES ACTUAL, ESTA LA FUNCION MENSUAL
+
+        //A VECES LLEGA fecharecorridadate >(MAYOR) fechaactualdate  
         if (alq != null && esCN && mov == null) {
             fecharecorridadate = alq.getFecha();
             fechareajusteanual = fecharecorridadate; //NO SE LE SUMA 1 MES, PORQUE GUARDA MES DE REAJUSTE DIRECTO
