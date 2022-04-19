@@ -125,7 +125,7 @@ public final class menu extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel1.setText("8.0");
+        jLabel1.setText("8.1");
 
         lbldgi.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbldgi.setForeground(java.awt.Color.red);
