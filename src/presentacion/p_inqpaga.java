@@ -707,8 +707,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         fechastrreajustenuevo = "01/" + devuelvemes(fechareajustevieja) + "/" + devuelveanio(new Date());
 
         fechareajustenueva = parsefechadate(fechastrreajustenuevo);
-        //guardaralquilermesactual();
-        //fechareajustenueva = inq.sumar1anio(fechareajustenueva);
+
         return fechareajustenueva;
     }
 
@@ -3749,7 +3748,14 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
 
         if (alq != null && esCN && mov == null) {
             fecharecorridadate = alq.getFecha();
-            fechareajusteanual = fecharecorridadate; //NO SE LE SUMA 1 MES, PORQUE GUARDA MES DE REAJUSTE DIRECTO
+            fechareajustecomun = sumar4meses(fecharecorridadate);//CHEQUEAR QUE ESTA FECHA NO SEA ANTES DE FECHA INICIO DE CONTRATO
+            fechareajusteanual = sumaraniosunafecha(fecharecorridadate, 1); //(15-06)NO SE LE SUMA 1 MES, PORQUE GUARDA MES DE REAJUSTE DIRECTO - DEBERIA SUMAR 1 AÑO
+            par = par.buscarparametroporfecha(fecharecorridadate);
+            if (par == null) {
+                throw new Exception("Error de sistema, inquilino: " + inq.getProp_id() + " - " + inq.getInq_casa() + " \n no existen datos de reajuste para fecha: " + devuelvemes(fecharecorridadate) + "/" + devuelveanio(fecharecorridadate));
+            }
+            axreajustediv = total * par.getProcaumento() / 100;
+            axreajustediv = axreajustediv / 3;
         }
         while (!sonfechasiguales(fecharecorridadate, fechaactualdate)) {
             if (sonfechasiguales(fecharecorridadate, fechareajusteanual)) {

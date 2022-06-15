@@ -75,7 +75,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
                     lblestado.setText("HABILITADO");
                     bloqueado_button.setText("BLOQUEAR");
                 }
-            } 
+            }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, toUpperCase(e.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -911,7 +911,16 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
 
         if (alq != null && esCN && mov == null) {
             fecharecorridadate = alq.getFecha();
-            fechareajusteanual = fecharecorridadate; //NO SE LE SUMA 1 MES, PORQUE GUARDA MES DE REAJUSTE DIRECTO
+            //CHEQUEAR SI LA FECHA QUE APLICA CORRECCION (fecharecorridadate) ESTA DENTRO DEL AÑO EN QUE NO REAJUSTA
+
+            fechareajustecomun = sumar4meses(fecharecorridadate);//CHEQUEAR QUE ESTA FECHA NO SEA ANTES DE FECHA INICIO DE CONTRATO
+            fechareajusteanual = sumaraniosunafecha(fecharecorridadate, 1); //(15-06)NO SE LE SUMA 1 MES, PORQUE GUARDA MES DE REAJUSTE DIRECTO - DEBERIA SUMAR 1 AÑO
+            par = par.buscarparametroporfecha(fecharecorridadate);
+            if (par == null) {
+                throw new Exception("Error de sistema, inquilino: " + inq.getProp_id() + " - " + inq.getInq_casa() + " \n no existen datos de reajuste para fecha: " + devuelvemes(fecharecorridadate) + "/" + devuelveanio(fecharecorridadate));
+            }
+            axreajustediv = total * par.getProcaumento() / 100;
+            axreajustediv = axreajustediv / 3;
         }
         while (!sonfechasiguales(fecharecorridadate, fechaactualdate)) {
             if (sonfechasiguales(fecharecorridadate, fechareajusteanual)) {
@@ -925,7 +934,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
                 fechareajustecomun = sumar4meses(fechareajustecomun);
                 fechareajusteanual = sumaraniosunafecha(fechareajusteanual, 1);
             } else if (sonfechasiguales(fecharecorridadate, fechareajustecomun)) {
-                total += (axreajustediv);
+                total += (axreajustediv);//valor 0.0f
                 fechareajustecomun = sumar4meses(fechareajustecomun);
             }
             if (esCN) {
@@ -961,6 +970,15 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         corregirsaldoalquiler(total, inq.getProp_id(), inq.getInq_casa(), devuelvemes(fecharecorridadate), devuelveanio(fecharecorridadate));
         //TOTAL = IMP ALQUILER AL DIA DE HOY
         //ACTUALIZAR EN BDD
+    }
+
+    Boolean estafechaestadentrodelperiodonoreajustable(Date fecha_recibida, Date fecha_inicio_contrato) {
+        //PERIODO = 1 AÑO
+        Date fecha_fin_periodo = sumaraniosunafecha(fecha_inicio_contrato, 1);
+        
+        
+
+        return false;
     }
 
     void corregirsaldoalquiler(float total, int prop_id, int inq_casa, int mqp, int aqp) throws Exception {

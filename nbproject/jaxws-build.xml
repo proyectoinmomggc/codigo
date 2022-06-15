@@ -33,5 +33,22 @@
         <delete dir="${build.generated.dir}/jax-wsCache/Sicfe"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-Sicfe"/>
+    <target name="wsimport-client-Sicfe_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Sicfe_1"/>
+        <property name="wsdl-Sicfe_1" location="xml-resources/web-service-references/Sicfe_1/wsdl/sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Sicfe_1" destdir="${build.generated.dir}/jax-wsCache/Sicfe_1" wsdl="${wsdl-Sicfe_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-Sicfe_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Sicfe_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Sicfe_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Sicfe_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/Sicfe_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-Sicfe, wsimport-client-Sicfe_1"/>
 </project>
