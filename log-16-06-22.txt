@@ -1,0 +1,151 @@
+[09:45:20 16/06/2022]
+INQ - correccion ingresada CN, id prop.: 104 -- id inq.: 1 -- importe: 18.000,00 -- fecha: 01/10/2020
+------------------------------------------------------------------------
+[09:45:21 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 104 -- id inq.: 1 -- mqp: 11 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 3.000,00
+------------------------------------------------------------------------
+[09:45:21 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 104 -- id inq.: 1 -- mqp: 2 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 3.000,00
+------------------------------------------------------------------------
+[09:45:21 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 104 -- id inq.: 1 -- mqp: 3 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 3.000,00
+------------------------------------------------------------------------
+[09:45:21 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 104 -- id inq.: 1 -- mqp: 4 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 3.000,00
+------------------------------------------------------------------------
+[09:45:21 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 104 -- id inq.: 1 -- mqp: 5 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 3.000,00
+------------------------------------------------------------------------
+[09:45:21 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 104 -- id inq.: 1 -- mqp: 6 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 3.000,00
+------------------------------------------------------------------------
+[09:45:21 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 104 -- id inq.: 1 -- mqp: 8 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 3.000,00
+------------------------------------------------------------------------
+[09:45:22 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 104 -- id inq.: 1 -- mqp: 9 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 3.000,00
+------------------------------------------------------------------------
+[09:47:55 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL - id prop.: 405 -- id inq.: 26 -- mqp: 4 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 249,30
+------------------------------------------------------------------------
+[09:47:55 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL - id prop.: 405 -- id inq.: 26 -- mqp: 5 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 249,30
+------------------------------------------------------------------------
+[09:47:55 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL - id prop.: 405 -- id inq.: 26 -- mqp: 6 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 249,30
+------------------------------------------------------------------------
+[09:49:02 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL - id prop.: 322 -- id inq.: 2 -- mqp: 3 -- aqp: 2022 -- detalle: SALDO ALQUILER -- total: 8.000,00
+------------------------------------------------------------------------
+[09:49:02 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL - id prop.: 322 -- id inq.: 2 -- mqp: 4 -- aqp: 2022 -- detalle: SALDO ALQUILER -- total: 1.000,00
+------------------------------------------------------------------------
+[09:49:55 16/06/2022]
+FUNCION MENSUAL EJECUTADA
+------------------------------------------------------------------------
+[09:50:16 16/06/2022]
+INQ - correccion eliminada, id prop.: 104 -- id inq.: 1 -- importe: 18.000,00
+------------------------------------------------------------------------
+[09:50:50 16/06/2022]
+INQ - correccion ingresada CN, id prop.: 104 -- id inq.: 1 -- importe: 18.356,00 -- fecha: 01/10/2021
+------------------------------------------------------------------------
+[09:56:28 16/06/2022]
+INQ - se edita importe alquiler, id prop: 405 -- id inq.: 6 -- imp. alq. anterior: 0,00 -- imp. alq. actual: 15.000,00
+------------------------------------------------------------------------
+[09:56:28 16/06/2022]
+INQ - se eliminan correcciones, para inq con id prop: 405 -- id inq.: 6
+------------------------------------------------------------------------
+[09:56:29 16/06/2022]
+INQ - se realiza funcion mensual, para inq con id prop: 405 -- id inq.: 6
+------------------------------------------------------------------------
+[09:56:29 16/06/2022]
+INQ - se edita inquilino, id prop: 405 -- id inq.: 6 -- nombre: DE SAN VICENTE FRANCO, PABLO -- direccion: LUIS B BERRES 1008 -- telefono: 96426472 -- tipo alq.: LOCAL -- fecha IC.: 01/03/2018 -- garantia: CARLOS DE SAN VICENTE CHARRUAS 1158 -- padron: 2100/p -- imp. alq.: 15.000,00 -- porc.: 8,00 -- plazo: 1 -- obs.: 8/18 INC PAGA $6500 LUEGO 7500 ** DEBE CONTRATO $3750 **
+18/8/21 deuda a zuvaldi meses 11 12 y 1 $7500 x 3 -- irpf: SI
+------------------------------------------------------------------------
+[09:56:32 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (FICHA) - id prop.: 405 -- id inq.: 6 -- mqp: 1 -- aqp: 2022 -- detalle: SALDO ALQUILER -- total: 15.000,00
+------------------------------------------------------------------------
+[09:56:32 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (FICHA) - id prop.: 405 -- id inq.: 6 -- mqp: 2 -- aqp: 2022 -- detalle: SALDO ALQUILER -- total: 15.000,00
+------------------------------------------------------------------------
+[09:56:32 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (FICHA) - id prop.: 405 -- id inq.: 6 -- mqp: 3 -- aqp: 2022 -- detalle: SALDO ALQUILER -- total: 15.957,00
+------------------------------------------------------------------------
+[09:56:32 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (FICHA) - id prop.: 405 -- id inq.: 6 -- mqp: 4 -- aqp: 2022 -- detalle: SALDO ALQUILER -- total: 15.957,00
+------------------------------------------------------------------------
+[09:56:32 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (FICHA) - id prop.: 405 -- id inq.: 6 -- mqp: 5 -- aqp: 2022 -- detalle: SALDO ALQUILER -- total: 15.957,00
+------------------------------------------------------------------------
+[09:57:24 16/06/2022]
+INQ - correccion ingresada CN, id prop.: 405 -- id inq.: 6 -- importe: 15.000,00 -- fecha: 01/03/2018
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 5 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 6 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 7 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 8 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 9 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 10 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 11 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 12 -- aqp: 2020 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 1 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:27 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 2 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 17.464,97
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 3 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 4 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 5 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 6 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 7 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 8 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 9 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 10 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 11 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:57:28 16/06/2022]
+SE INGRESA 'ALQUILER' DESDE FUNCION MENSUAL (INQ_PAGA) - id prop.: 405 -- id inq.: 6 -- mqp: 12 -- aqp: 2021 -- detalle: SALDO ALQUILER -- total: 18.732,93
+------------------------------------------------------------------------
+[09:58:47 16/06/2022]
+INQ - correccion eliminada, id prop.: 405 -- id inq.: 6 -- importe: 15.000,00
+------------------------------------------------------------------------
+[09:59:49 16/06/2022]
+INQ - correccion ingresada CN, id prop.: 405 -- id inq.: 6 -- importe: 15.000,00 -- fecha: 01/03/2018
+------------------------------------------------------------------------
+[10:00:34 16/06/2022]
+INQ - correccion eliminada, id prop.: 405 -- id inq.: 6 -- importe: 15.000,00
+------------------------------------------------------------------------

@@ -231,7 +231,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         caract.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         caract.setText("0/255");
         getContentPane().add(caract);
-        caract.setBounds(140, 540, 70, 17);
+        caract.setBounds(200, 500, 70, 17);
 
         txtplazoinq.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtplazoinq);
@@ -441,7 +441,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jScrollPane2.setViewportView(txtobservaciones);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(10, 560, 430, 130);
+        jScrollPane2.setBounds(10, 520, 640, 90);
 
         btnactualizarimporte1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnactualizarimporte1.setText("FUNCION MENSUAL");
@@ -456,7 +456,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel18.setText("OBSERVACIONES");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(10, 540, 130, 17);
+        jLabel18.setBounds(10, 500, 130, 17);
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel19.setText("ID INQ");
@@ -501,7 +501,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 671, 764);
+        setBounds(0, 0, 671, 689);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txttelinqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttelinqActionPerformed
@@ -934,7 +934,9 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
                 fechareajustecomun = sumar4meses(fechareajustecomun);
                 fechareajusteanual = sumaraniosunafecha(fechareajusteanual, 1);
             } else if (sonfechasiguales(fecharecorridadate, fechareajustecomun)) {
-                total += (axreajustediv);//valor 0.0f
+                if (!estafechaestadentrodelperiodonoreajustable(fecharecorridadate, inq.getInq_fechaic())) {
+                    total += (axreajustediv);                 
+                }
                 fechareajustecomun = sumar4meses(fechareajustecomun);
             }
             if (esCN) {
@@ -975,8 +977,14 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
     Boolean estafechaestadentrodelperiodonoreajustable(Date fecha_recibida, Date fecha_inicio_contrato) {
         //PERIODO = 1 AÑO
         Date fecha_fin_periodo = sumaraniosunafecha(fecha_inicio_contrato, 1);
-        
-        
+
+        int compara_fecha_inicio = fecha_recibida.compareTo(fecha_inicio_contrato);
+        int compara_fecha_fin = fecha_recibida.compareTo(fecha_fin_periodo);
+
+        if (compara_fecha_inicio >= 0 && compara_fecha_fin <= 0) {
+            //FECHA RECIBIDA ESTA DENTRO DEL PERIODO NO REAJUSTABLE
+            return true;
+        }
 
         return false;
     }

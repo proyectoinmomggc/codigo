@@ -3769,7 +3769,9 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                 fechareajustecomun = sumar4meses(fechareajustecomun);
                 fechareajusteanual = sumaraniosunafecha(fechareajusteanual, 1);
             } else if (sonfechasiguales(fecharecorridadate, fechareajustecomun)) {
-                total += (axreajustediv);
+                if (!estafechaestadentrodelperiodonoreajustable(fecharecorridadate, inq.getInq_fechaic())) {
+                    total += (axreajustediv);                 
+                }
                 fechareajustecomun = sumar4meses(fechareajustecomun);
             }
             if (esCN) {
@@ -3807,6 +3809,21 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         //ACTUALIZAR EN BDD
     }
 
+    Boolean estafechaestadentrodelperiodonoreajustable(Date fecha_recibida, Date fecha_inicio_contrato) {
+        //PERIODO = 1 AÑO
+        Date fecha_fin_periodo = sumaraniosunafecha(fecha_inicio_contrato, 1);
+
+        int compara_fecha_inicio = fecha_recibida.compareTo(fecha_inicio_contrato);
+        int compara_fecha_fin = fecha_recibida.compareTo(fecha_fin_periodo);
+
+        if (compara_fecha_inicio >= 0 && compara_fecha_fin <= 0) {
+            //FECHA RECIBIDA ESTA DENTRO DEL PERIODO NO REAJUSTABLE
+            return true;
+        }
+
+        return false;
+    }
+    
     void actualizarimportealquilerlocal(d_inquilino inq) throws Exception {
         int anioactual;
         int anioic;
