@@ -406,6 +406,7 @@ public class p_ejecutar_funcion_mensual extends javax.swing.JDialog implements S
             total = alq.getImporte();
             if (alq.getDetalle().equals("CN")) {
                 esCN = true;
+                mov = null;
             }
         }
 
@@ -441,7 +442,7 @@ public class p_ejecutar_funcion_mensual extends javax.swing.JDialog implements S
                 fechareajusteanual = sumaraniosunafecha(fechareajusteanual, 1);
             } else if (sonfechasiguales(fecharecorridadate, fechareajustecomun)) {
                 if (!estafechaestadentrodelperiodonoreajustable(fecharecorridadate, inq.getInq_fechaic())) {
-                    total += (axreajustediv);                 
+                    total += (axreajustediv);
                 }
                 fechareajustecomun = sumar4meses(fechareajustecomun);
             }
@@ -494,7 +495,7 @@ public class p_ejecutar_funcion_mensual extends javax.swing.JDialog implements S
 
         return false;
     }
-    
+
     void actualizarimportealquilerlocal(d_inquilino inq) throws Exception {
         int anioactual;
         int anioic;
@@ -539,6 +540,7 @@ public class p_ejecutar_funcion_mensual extends javax.swing.JDialog implements S
             total = alq.getImporte();
             if (alq.getDetalle().equals("CN")) {
                 esCN = true;
+                mov = null;
             }
         }
 

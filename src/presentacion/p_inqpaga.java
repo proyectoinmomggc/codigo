@@ -796,12 +796,12 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
 
         try {
             if (inq != null) {
-                if(inq.inquilino_bloqueado(inq.getProp_id(), inq.getInq_casa())){
+                if (inq.inquilino_bloqueado(inq.getProp_id(), inq.getInq_casa())) {
                     throw new Exception("no puede abonar, el inquilino esta bloqueado\n"
                             + "si desea desbloquear, debe hacerlo desde la ficha de inquilino");
                 }
             }
-            
+
             quiereimprimir = false;
             listamovimientos = null;
             aplicoconvenioreintegro = false;
@@ -1116,7 +1116,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             } else {
                 rec.setImporte(mov.getEntrada());
             }
-            rec.guardarrecibo(rec,"alquiler");
+            rec.guardarrecibo(rec, "alquiler");
             //mostrarrecibo();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1485,7 +1485,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                         rec.setFecha(mov.getFecha());
                         rec.setNombre_inq(inq.getInq_nombre());
                         rec.setImporte(mov.getEntrada());
-                        rec.guardarrecibo(rec,"alquiler");
+                        rec.guardarrecibo(rec, "alquiler");
                         movcr = buscarconvenioreintegropago(mov);
                         if (movcr != null) {
                             rec = new d_recibo();
@@ -1498,7 +1498,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                             } else {
                                 rec.setImporte(movcr.getEntrada());
                             }
-                            rec.guardarrecibo(rec,"alquiler");
+                            rec.guardarrecibo(rec, "alquiler");
                         }
                     } else {
                         mov = new d_movimiento();
@@ -1513,7 +1513,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                             rec.setFecha(mov.getFecha());
                             rec.setNombre_inq(inq.getInq_nombre());
                             rec.setImporte(mov.getEntrada());
-                            rec.guardarrecibo(rec,"alquiler");
+                            rec.guardarrecibo(rec, "alquiler");
                             movcr = buscarconvenioreintegropago(mov);
                             if (movcr != null) {
                                 rec = new d_recibo();
@@ -1526,7 +1526,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                                 } else {
                                     rec.setImporte(movcr.getEntrada());
                                 }
-                                rec.guardarrecibo(rec,"alquiler");
+                                rec.guardarrecibo(rec, "alquiler");
                             }
                         }
                     }
@@ -1576,7 +1576,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                         rec.setFecha(mov.getFecha());
                         rec.setNombre_inq(inq.getInq_nombre());
                         rec.setImporte(mov.getEntrada());
-                        rec.guardarrecibo(rec,"alquiler");
+                        rec.guardarrecibo(rec, "alquiler");
                         movcr = buscarconvenioreintegropago(mov);
                         if (movcr != null) {
                             rec = new d_recibo();
@@ -1589,7 +1589,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                             } else {
                                 rec.setImporte(movcr.getEntrada());
                             }
-                            rec.guardarrecibo(rec,"alquiler");
+                            rec.guardarrecibo(rec, "alquiler");
                         }
                     } else {
                         //mov1 = buscaralquilerpagadoconsaldo(mov);
@@ -1605,7 +1605,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                             rec.setFecha(mov.getFecha());
                             rec.setNombre_inq(inq.getInq_nombre());
                             rec.setImporte(mov.getEntrada());
-                            rec.guardarrecibo(rec,"alquiler");
+                            rec.guardarrecibo(rec, "alquiler");
                             movcr = buscarconvenioreintegropago(mov);
                             if (movcr != null) {
                                 rec = new d_recibo();
@@ -1618,7 +1618,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                                 } else {
                                     rec.setImporte(movcr.getEntrada());
                                 }
-                                rec.guardarrecibo(rec,"alquiler");
+                                rec.guardarrecibo(rec, "alquiler");
                             }
                         }
                     }
@@ -2948,7 +2948,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         if (listadeuda == null) {
             return;
         }
-        rec.guardarlistadodeuda(listadeuda,"alquiler");
+        rec.guardarlistadodeuda(listadeuda, "alquiler");
     }
 
     void eliminarlistadodeuda() throws Exception {
@@ -3739,6 +3739,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             total = alq.getImporte();
             if (alq.getDetalle().equals("CN")) {
                 esCN = true;
+                mov = null;
             }
         }
 
@@ -3770,7 +3771,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                 fechareajusteanual = sumaraniosunafecha(fechareajusteanual, 1);
             } else if (sonfechasiguales(fecharecorridadate, fechareajustecomun)) {
                 if (!estafechaestadentrodelperiodonoreajustable(fecharecorridadate, inq.getInq_fechaic())) {
-                    total += (axreajustediv);                 
+                    total += (axreajustediv);
                 }
                 fechareajustecomun = sumar4meses(fechareajustecomun);
             }
@@ -3823,7 +3824,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
 
         return false;
     }
-    
+
     void actualizarimportealquilerlocal(d_inquilino inq) throws Exception {
         int anioactual;
         int anioic;
@@ -3870,6 +3871,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             total = alq.getImporte();
             if (alq.getDetalle().equals("CN")) {
                 esCN = true;
+                mov = null;
             }
         }
 
@@ -4171,7 +4173,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
     public void actualizar_listado() {
         try {
             inq.reiniciarimpalquilerparticular(inq.getProp_id(), inq.getInq_casa());
-            inq=inq.buscarinquilino(inq.getProp_id(), inq.getInq_casa());
+            inq = inq.buscarinquilino(inq.getProp_id(), inq.getInq_casa());
             if (inq.getInq_tipoalq().equals("HABITACION")) {
                 actualizarimportealquilerhabitacion(inq);
             }

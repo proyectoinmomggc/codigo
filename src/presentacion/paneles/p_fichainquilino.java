@@ -891,13 +891,13 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         } //else {
         //ingresarimporteamano(inq);
         //}
-
         alq = alq.buscar_alquiler_info(inq.getProp_id(), inq.getInq_casa());
         if (alq != null) {
             importeingresado = true;
             total = alq.getImporte();
             if (alq.getDetalle().equals("CN")) {
                 esCN = true;
+                mov = null; //para trabajar solo con fechas de correccion 08/09/22
             }
         }
 
@@ -921,7 +921,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
             }
             axreajustediv = total * par.getProcaumento() / 100;
             axreajustediv = axreajustediv / 3;
-        }
+        }//else si el mov es distinto a null 08/09/22
         while (!sonfechasiguales(fecharecorridadate, fechaactualdate)) {
             if (sonfechasiguales(fecharecorridadate, fechareajusteanual)) {
                 par = par.buscarparametroporfecha(fechareajusteanual);
@@ -935,7 +935,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
                 fechareajusteanual = sumaraniosunafecha(fechareajusteanual, 1);
             } else if (sonfechasiguales(fecharecorridadate, fechareajustecomun)) {
                 if (!estafechaestadentrodelperiodonoreajustable(fecharecorridadate, inq.getInq_fechaic())) {
-                    total += (axreajustediv);                 
+                    total += (axreajustediv);
                 }
                 fechareajustecomun = sumar4meses(fechareajustecomun);
             }
@@ -1171,6 +1171,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
             total = alq.getImporte();
             if (alq.getDetalle().equals("CN")) {
                 esCN = true;
+                mov = null;
             }
         }
 
