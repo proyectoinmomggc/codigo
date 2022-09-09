@@ -888,6 +888,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
             fecharecorridadate = parsefechadate(fecharecorrida);
             fechareajusteanual = sumar1mes(fecharecorridadate);
             fechareajustecomun = fechareajusteanual;
+            //System.out.println(fecharecorrida+"\n"+total);
         } //else {
         //ingresarimporteamano(inq);
         //}
