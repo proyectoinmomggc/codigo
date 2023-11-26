@@ -140,7 +140,7 @@ public class p_lstinquilinos extends javax.swing.JFrame implements observador_in
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("FILTRO");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(170, 20, 260, 17);
+        jLabel2.setBounds(170, 20, 430, 17);
 
         txtfiltro.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtfiltro.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -171,7 +171,7 @@ public class p_lstinquilinos extends javax.swing.JFrame implements observador_in
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("ORDEN");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 20, 50, 17);
+        jLabel3.setBounds(10, 20, 220, 17);
 
         setBounds(0, 0, 1012, 578);
     }// </editor-fold>//GEN-END:initComponents

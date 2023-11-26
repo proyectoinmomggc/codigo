@@ -63,12 +63,12 @@ public class p_gastoinmo extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("IMPORTE");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 70, 64, 17);
+        jLabel3.setBounds(10, 70, 120, 17);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("DETALLE");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 120, 90, 17);
+        jLabel4.setBounds(10, 120, 150, 17);
 
         txtdetalle.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtdetalle);
@@ -91,9 +91,8 @@ public class p_gastoinmo extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("FECHA");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 20, 47, 17);
+        jLabel7.setBounds(10, 20, 100, 17);
 
-        jdcfecha.setDateFormatString("dd/MM/yyyy");
         jdcfecha.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha);
         jdcfecha.setBounds(10, 40, 138, 30);

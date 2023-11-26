@@ -60,7 +60,6 @@ public class d_alquileres_info {
         this.detalle = detalle;
     }
 
-    
     public void guardar_alquiler_info(d_alquileres_info alq) throws Exception {
         p_alquileres_info.guardar_alquiler_info(alq);
     }
@@ -74,6 +73,12 @@ public class d_alquileres_info {
             throw new Exception(ex.getMessage());
         }
         return alq;
+    }
+
+    public Boolean tiene_correccion(Integer prop_id, Integer inq_casa) throws Exception {
+        //d_alquileres_info alq = null;
+
+        return p_alquileres_info.tiene_correccion(prop_id, inq_casa);
     }
 
     public void eliminar_alquiler_info(Integer prop_id, Integer inq_casa) throws Exception {

@@ -293,7 +293,7 @@ public class p_ejecutar_funcion_mensual extends javax.swing.JDialog implements S
 
         if (gas != null) {
             if (gas.getEstado().equals(0)) {
-                gas.setImporte(inq.getInq_impalq_aux() - (revisarentregassaldo(inq.getProp_id(), inq.getInq_casa(), mqp, aqp)));
+                //gas.setImporte(inq.getInq_impalq_aux() - (revisarentregassaldo(inq.getProp_id(), inq.getInq_casa(), mqp, aqp)));
                 //BUSCAR SI NO TIENE ALGUN ENTREGA DE SALDO
                 //OPCION -> AL NUEVO IMPORTE RESTARLE ENTREGAS A CUENTA ALQUILER
 
@@ -863,11 +863,14 @@ public class p_ejecutar_funcion_mensual extends javax.swing.JDialog implements S
             if (gas != null) {
                 if (gas.getEstado().equals(0)) {
                     //revisar entregas
-                    total = total - (revisarentregassaldo(prop_id, inq_casa, mqp, aqp));
+                    //revisar entregas
+                    total = gas.getImporte();
+                    //total = total - (revisarentregassaldo(prop_id, inq_casa, mqp, aqp)); se saco 29/10/23
                     gas.setImporte(total);
                     if (gas.getDetalle().equals("SALDO ALQUILER")
                             || gas.getDetalle().equals("ALQUILER")
-                            || gas.getDetalle().equals("ALQUILER MES")) {
+                            || gas.getDetalle().equals("ALQUILER MES")
+                            || gas.getDetalle().equals("SALDO ALQUILER DIAS")) {
                         //revisar entregas
                         gas.actualizarimporte(gas);
                     }

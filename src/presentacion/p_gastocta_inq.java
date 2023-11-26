@@ -11,7 +11,10 @@ import dominio.d_propietario;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import javax.swing.JOptionPane;
 import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
@@ -46,6 +49,8 @@ public class p_gastocta_inq extends javax.swing.JDialog {
 
         txtmqp.setText(formateador1.format(new Date()));
         txtaqp.setText(formateador2.format(new Date()));
+        txtmqp1.setText(formateador1.format(new Date()));
+        txtaqp1.setText(formateador2.format(new Date()));
     }
 
     void generarsaldoalquilerdias() {
@@ -76,6 +81,11 @@ public class p_gastocta_inq extends javax.swing.JDialog {
             txtaqp.setText(devuelveanio(inq.getInq_fechaic()).toString());
             txtmqp.setEnabled(false);
             txtaqp.setEnabled(false);
+
+            txtmqp1.setText(devuelvemes(inq.getInq_fechaic()).toString());
+            txtaqp1.setText(devuelveanio(inq.getInq_fechaic()).toString());
+            txtmqp1.setEnabled(false);
+            txtaqp1.setEnabled(false);
         }
     }
 
@@ -106,13 +116,9 @@ public class p_gastocta_inq extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel8 = new javax.swing.JLabel();
         txtpropid = new javax.swing.JTextField();
-        txtmqp = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtaqp = new javax.swing.JTextField();
         txtdetalle = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtimporte = new javax.swing.JTextField();
@@ -123,15 +129,21 @@ public class p_gastocta_inq extends javax.swing.JDialog {
         cmbtipo = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         lblnombreinq = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtmqp = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtmqp1 = new javax.swing.JTextField();
+        txtaqp = new javax.swing.JTextField();
+        txtaqp1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("GASTOS A PAGAR DE CUENTA INGRESADA");
         getContentPane().setLayout(null);
-
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel8.setText("MQP");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 240, 33, 17);
 
         txtpropid.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtpropid.addActionListener(new java.awt.event.ActionListener() {
@@ -147,28 +159,15 @@ public class p_gastocta_inq extends javax.swing.JDialog {
         getContentPane().add(txtpropid);
         txtpropid.setBounds(10, 40, 138, 30);
 
-        txtmqp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        getContentPane().add(txtmqp);
-        txtmqp.setBounds(10, 260, 138, 30);
-
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("IMPORTE");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 190, 64, 17);
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel9.setText("AQP");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(10, 290, 29, 17);
+        jLabel3.setBounds(260, 260, 120, 17);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("DETALLE");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(200, 240, 80, 17);
-
-        txtaqp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        getContentPane().add(txtaqp);
-        txtaqp.setBounds(10, 310, 138, 30);
+        jLabel4.setBounds(10, 320, 80, 17);
 
         txtdetalle.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtdetalle.addActionListener(new java.awt.event.ActionListener() {
@@ -177,16 +176,16 @@ public class p_gastocta_inq extends javax.swing.JDialog {
             }
         });
         getContentPane().add(txtdetalle);
-        txtdetalle.setBounds(200, 260, 138, 80);
+        txtdetalle.setBounds(10, 340, 220, 70);
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("ID INQ");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(10, 70, 43, 17);
+        jLabel12.setBounds(10, 70, 250, 17);
 
         txtimporte.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtimporte);
-        txtimporte.setBounds(10, 210, 138, 30);
+        txtimporte.setBounds(260, 280, 138, 30);
 
         txtinqcasa.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtinqcasa.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +224,7 @@ public class p_gastocta_inq extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("TIPO");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(200, 190, 32, 17);
+        jLabel5.setBounds(260, 190, 70, 17);
 
         cmbtipo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cmbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SALDO ALQUILER", "ALQUILER DIAS", "TASA MUNICIPAL", "OSE", "GASTOS COMUNES", "OTROS (INGRESAR DETALLE)" }));
@@ -235,12 +234,12 @@ public class p_gastocta_inq extends javax.swing.JDialog {
             }
         });
         getContentPane().add(cmbtipo);
-        cmbtipo.setBounds(200, 210, 138, 30);
+        cmbtipo.setBounds(260, 210, 138, 30);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("ID PROP");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 20, 57, 17);
+        jLabel1.setBounds(10, 20, 270, 17);
 
         lblnombreinq.setBackground(java.awt.Color.green);
         lblnombreinq.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -248,7 +247,78 @@ public class p_gastocta_inq extends javax.swing.JDialog {
         getContentPane().add(lblnombreinq);
         lblnombreinq.setBounds(10, 140, 550, 40);
 
-        setBounds(0, 0, 582, 400);
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel10.setText("HASTA");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(20, 280, 60, 17);
+
+        txtmqp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtmqp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtmqpKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtmqp);
+        txtmqp.setBounds(80, 230, 65, 30);
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel11.setText("MQP");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(80, 260, 40, 17);
+
+        txtmqp1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtmqp1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtmqp1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtmqp1);
+        txtmqp1.setBounds(80, 280, 65, 30);
+
+        txtaqp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtaqp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtaqpKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtaqp);
+        txtaqp.setBounds(150, 230, 65, 30);
+
+        txtaqp1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtaqp1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtaqp1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtaqp1);
+        txtaqp1.setBounds(150, 280, 65, 30);
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setText("AQP");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(150, 210, 60, 17);
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel14.setText("AQP");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(150, 260, 60, 17);
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel15.setText("MQP");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(80, 210, 33, 17);
+
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel17.setText("DESDE");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(20, 230, 60, 17);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RANGO DE FECHAS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+        jPanel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(10, 190, 250, 130);
+
+        setBounds(0, 0, 582, 463);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtpropidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpropidActionPerformed
@@ -286,6 +356,10 @@ public class p_gastocta_inq extends javax.swing.JDialog {
         Integer prop_id = 0;
         Integer inq_id = 0;
 
+        if(txtpropid.getText().equals("")||txtinqcasa.getText().equals("")){
+            throw new Exception("debe ingresar datos de inquilino");
+        }
+        
         prop_id = Integer.parseInt(txtpropid.getText());
         inq_id = Integer.parseInt(txtinqcasa.getText());
         inq = inq.buscarinquilino(prop_id, inq_id);
@@ -303,13 +377,20 @@ public class p_gastocta_inq extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         p_control con = p_control.getInstancia();
         d_propietario prop1 = new d_propietario();
-        d_gastos_inq gas = new d_gastos_inq();
+        //d_gastos_inq gas = new d_gastos_inq();
         Float importe = 0.0F;
         Date fechaingresada = null;
-
+        List<d_gastos_inq> lista = new ArrayList<>();
+        int gastos_guardados = 0;
         try {
             //controlar campos
             controlar_inq();
+
+            lista = generarlistado();
+            if (lista.isEmpty()) {
+                return;
+            }
+            /*
             gas.setProp_id(inq.getProp_id());
             gas.setInq_casa(inq.getInq_casa());
             importe = con.guardarnumero(txtimporte.getText());
@@ -326,46 +407,167 @@ public class p_gastocta_inq extends javax.swing.JDialog {
                 return;
             }
             gas.setEstado(0);
+             */
             int ax = JOptionPane.showConfirmDialog(null,
-                    "¿DESEA GUARDAR LOS DATOS?", "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
+                    lista.size() + " GASTO/S A INGRESAR\n" + devuelve_mensaje(lista) + "¿DESEA GUARDAR LOS DATOS?", "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
             if (ax == JOptionPane.YES_OPTION) {
-                //controlar fecha ingresada con fecha apertura contrato del inq
-                int dia = devuelvedia(inq.getInq_fechaic());
-                fechaingresada = parsefechadate(dia + "/" + gas.getMqp() + "/" + gas.getAqp());
-                //chequear el dia que compara contra el dia de inicio de contrato
-                int compara = fechaingresada.compareTo(inq.getInq_fechaic());
-                if (compara < 0) {
-                    int ax1 = JOptionPane.showConfirmDialog(null, toUpperCase("el gasto ingresado tiene una fecha anterior a la fecha de inicio del contrato, ¿desea continuar?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
-                    if (ax1 == JOptionPane.YES_OPTION) {
+                for (d_gastos_inq gas : lista) {
+
+                    //controlar fecha ingresada con fecha apertura contrato del inq
+                    int dia = devuelvedia(inq.getInq_fechaic());
+                    fechaingresada = parsefechadate(dia + "/" + gas.getMqp() + "/" + gas.getAqp());
+                    //chequear el dia que compara contra el dia de inicio de contrato
+                    int compara = fechaingresada.compareTo(inq.getInq_fechaic());
+                    if (compara < 0) {
+                        int ax1 = JOptionPane.showConfirmDialog(null, toUpperCase("el gasto ingresado con fecha " + gas.getMqp() + "/" + gas.getAqp() + " es anterior al inicio del contrato, ¿desea continuar?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
+                        if (ax1 == JOptionPane.YES_OPTION) {
+                            gas.guardargastoinq(gas);
+                            gastos_guardados = gastos_guardados + 1;
+                            con.escribirfichero("INQ - se ingresa gasto a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa() + " -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()));
+
+                            //ACTUALIZA EL SALDO ACTUAL DEL INQUILINO
+                            if (aplicaactualizarsaldo(gas.getMqp(), gas.getAqp())) {
+                                inq.actualizarsaldo(inq.getProp_id(), inq.getInq_casa(), (inq.getInq_saldo() + importe));
+                            }
+                            //JOptionPane.showMessageDialog(this, "GASTO GUARDADO CORRECTAMENTE", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+                            //limpiarcampos();
+                            //this.dispose();
+                        } else {
+                            break;
+                        }
+                    } else {
                         gas.guardargastoinq(gas);
-
+                        gastos_guardados = gastos_guardados + 1;
                         con.escribirfichero("INQ - se ingresa gasto a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa() + " -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()));
-
                         //ACTUALIZA EL SALDO ACTUAL DEL INQUILINO
+                        //CHEQUEAR QUE SI ES DEL MES ACTUAL NO SUMAR A LA DEUDA
                         if (aplicaactualizarsaldo(gas.getMqp(), gas.getAqp())) {
                             inq.actualizarsaldo(inq.getProp_id(), inq.getInq_casa(), (inq.getInq_saldo() + importe));
                         }
-                        JOptionPane.showMessageDialog(this, "GASTO GUARDADO CORRECTAMENTE", "AVISO", JOptionPane.INFORMATION_MESSAGE);
-                        limpiarcampos();
-                        this.dispose();
+                        //JOptionPane.showMessageDialog(this, "GASTO GUARDADO CORRECTAMENTE", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+                        //limpiarcampos();
+                        //this.dispose();
                     }
-                } else {
-                    gas.guardargastoinq(gas);
-                    con.escribirfichero("INQ - se ingresa gasto a cuenta id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa() + " -- mqp: " + gas.getMqp() + " -- " + "aqp: " + gas.getAqp() + " -- " + "detalle: " + gas.getDetalle() + " -- " + "importe: " + con.mostrarnumero(gas.getImporte()));
-                    //ACTUALIZA EL SALDO ACTUAL DEL INQUILINO
-                    //CHEQUEAR QUE SI ES DEL MES ACTUAL NO SUMAR A LA DEUDA
-                    if (aplicaactualizarsaldo(gas.getMqp(), gas.getAqp())) {
-                        inq.actualizarsaldo(inq.getProp_id(), inq.getInq_casa(), (inq.getInq_saldo() + importe));
-                    }
-                    JOptionPane.showMessageDialog(this, "GASTO GUARDADO CORRECTAMENTE", "AVISO", JOptionPane.INFORMATION_MESSAGE);
-                    limpiarcampos();
-                    this.dispose();
                 }
+                JOptionPane.showMessageDialog(this, gastos_guardados + " GASTO/S GUARDADO/S CORRECTAMENTE", "AVISO", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    String devuelve_mensaje(List<d_gastos_inq> lista) throws Exception {
+        p_control con = p_control.getInstancia();
+        String mensaje = "";
+        for (d_gastos_inq gas : lista) {
+            mensaje = mensaje + gas.getMqp() + "/" + gas.getAqp() + " $" + con.mostrarnumero(gas.getImporte()) + " " + cmbtipo.getSelectedItem() + "\n";
+        }
+        return mensaje;
+    }
+
+    List<d_gastos_inq> generarlistado() throws Exception {
+
+        p_control con = p_control.getInstancia();
+        List<d_gastos_inq> lista = new ArrayList<>();
+        d_gastos_inq gas = null;
+
+        int mes1, mes2;
+
+        mes1 = Integer.parseInt(txtmqp.getText());
+        mes2 = Integer.parseInt(txtmqp1.getText());
+
+        if (mes1 < 1 || mes1 > 12) {
+            JOptionPane.showMessageDialog(this, toUpperCase("el mes debe ser entre 1 y 12"), "ERROR", JOptionPane.ERROR_MESSAGE);
+            return new ArrayList<>();
+        }
+
+        if (mes2 < 1 || mes2 > 12) {
+            JOptionPane.showMessageDialog(this, toUpperCase("el mes debe ser entre 1 y 12"), "ERROR", JOptionPane.ERROR_MESSAGE);
+            return new ArrayList<>();
+        }
+        
+        if (txtimporte.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, toUpperCase("debe ingresar un importe"), "ERROR", JOptionPane.ERROR_MESSAGE);
+            return new ArrayList<>();
+        }
+
+        String fdesde = "01/" + txtmqp.getText() + "/" + txtaqp.getText();
+        String fhasta = "01/" + txtmqp1.getText() + "/" + txtaqp1.getText();
+
+        Date fechadesde = parsefechadate(fdesde);
+        Date fechahasta = parsefechadate(fhasta);
+
+        int compara = fechadesde.compareTo(fechahasta);
+        if (compara == 1) {
+            throw new Exception("REVISE RANGO DE FECHAS, FECHA DESDE DEBE SER MENOR A FECHA HASTA");
+        }
+        int difmeses = calcularmesesafecha(fechadesde, fechahasta);
+        if (difmeses == -1) {
+            return null;
+        }
+
+        Date fechaactual = fechadesde;
+        float importe = con.guardarnumero(txtimporte.getText());
+        if (importe == 0f) {
+            throw new Exception("EL IMPORTE DEBE SER MAYOR A 0");
+        }
+
+        //importemostrar = importe;
+
+        /*
+        String detalle = (String) cmbtipo.getSelectedItem();
+        if (detalle.equals("REINTEGRO")) {
+            importe = Math.abs(importe) * -1;
+        }
+         */
+        int i = 0;
+        while (i <= difmeses) {
+            //fechaactual = fechadesde;
+            gas = new d_gastos_inq();
+            gas.setProp_id(inq.getProp_id());
+            gas.setInq_casa(inq.getInq_casa());
+            gas.setDetalle(devuelvedetalle());
+            gas.setImporte(importe);
+            gas.setAqp(devuelveanio(fechaactual));
+            gas.setMqp(devuelvemes(fechaactual));
+            //gas.setEstado(2); REINTEGRO CONVENIO ESTABA EN 2
+            gas.setEstado(0);
+            lista.add(gas);
+            fechaactual = sumar1mes(fechaactual);
+            i += 1;
+        }
+
+        //diferenciameses = i;
+        //detalletipo = detalle;
+        return lista;
+
+    }
+
+    public Date sumar1mes(Date fecha) {
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(fecha);
+        calendario.add(Calendar.MONTH, 1);
+        return calendario.getTime();
+    }
+
+    Integer calcularmesesafecha(Date fechaInicio, Date fechaFin) throws Exception {
+        try {
+            //Fecha inicio en objeto Calendar
+            Calendar startCalendar = Calendar.getInstance();
+            startCalendar.setTime(fechaInicio);
+            //Fecha finalización en objeto Calendar
+            Calendar endCalendar = Calendar.getInstance();
+            endCalendar.setTime(fechaFin);
+            //Cálculo de meses para las fechas de inicio y finalización
+            int startMes = (startCalendar.get(Calendar.YEAR) * 12) + startCalendar.get(Calendar.MONTH);
+            int endMes = (endCalendar.get(Calendar.YEAR) * 12) + endCalendar.get(Calendar.MONTH);
+            //Diferencia en meses entre las dos fechas
+            int diffMonth = endMes - startMes;
+            return diffMonth;
+        } catch (Exception e) {
+            throw new Exception("ERROR AL OBTENER DIFERENCIA DE MESES");
+        }
+    }
 
     Boolean aplicaactualizarsaldo(int mqp, int aqp) {
         Date fecha = new Date();
@@ -394,6 +596,38 @@ public class p_gastocta_inq extends javax.swing.JDialog {
             funcbuscar();
         }
     }//GEN-LAST:event_txtinqcasaKeyPressed
+
+    private void txtmqpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmqpKeyTyped
+        char car = evt.getKeyChar();
+        if (!Character.isDigit(car)) {
+            evt.consume();
+            getToolkit().beep();
+        }
+    }//GEN-LAST:event_txtmqpKeyTyped
+
+    private void txtmqp1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmqp1KeyTyped
+        char car = evt.getKeyChar();
+        if (!Character.isDigit(car)) {
+            evt.consume();
+            getToolkit().beep();
+        }
+    }//GEN-LAST:event_txtmqp1KeyTyped
+
+    private void txtaqpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtaqpKeyTyped
+        char car = evt.getKeyChar();
+        if (!Character.isDigit(car)) {
+            evt.consume();
+            getToolkit().beep();
+        }
+    }//GEN-LAST:event_txtaqpKeyTyped
+
+    private void txtaqp1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtaqp1KeyTyped
+        char car = evt.getKeyChar();
+        if (!Character.isDigit(car)) {
+            evt.consume();
+            getToolkit().beep();
+        }
+    }//GEN-LAST:event_txtaqp1KeyTyped
 
     void limpiarcampos() {
         txtpropid.setText("");
@@ -480,18 +714,25 @@ public class p_gastocta_inq extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblnombreinq;
     private javax.swing.JTextField txtaqp;
+    private javax.swing.JTextField txtaqp1;
     private javax.swing.JTextField txtdetalle;
     private javax.swing.JTextField txtimporte;
     private javax.swing.JTextField txtinqcasa;
     private javax.swing.JTextField txtmqp;
+    private javax.swing.JTextField txtmqp1;
     private javax.swing.JTextField txtpropid;
     // End of variables declaration//GEN-END:variables
 }

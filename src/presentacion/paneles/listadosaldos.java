@@ -142,7 +142,7 @@ public class listadosaldos extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("SALDO TOTAL");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 390, 95, 17);
+        jLabel1.setBounds(10, 390, 180, 17);
 
         lblsaldototalnegativo.setBackground(java.awt.Color.green);
         lblsaldototalnegativo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -163,12 +163,12 @@ public class listadosaldos extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("TOTAL NEGATIVO");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 270, 130, 17);
+        jLabel2.setBounds(10, 270, 210, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("TOTAL POSITIVO");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 330, 130, 17);
+        jLabel3.setBounds(10, 330, 210, 17);
 
         lblsaldototal.setBackground(java.awt.Color.green);
         lblsaldototal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

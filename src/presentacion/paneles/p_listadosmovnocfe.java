@@ -127,12 +127,12 @@ public class p_listadosmovnocfe extends javax.swing.JDialog implements observado
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("DESDE");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 20, 47, 17);
+        jLabel1.setBounds(10, 20, 170, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("HASTA");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 20, 70, 17);
+        jLabel3.setBounds(180, 20, 190, 17);
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton1.setText("FILTRAR");

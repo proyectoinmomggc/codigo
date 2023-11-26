@@ -90,12 +90,12 @@ public class p_recibo_resguardo extends javax.swing.JDialog implements Serializa
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("IMPORTE");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(10, 350, 70, 17);
+        jLabel10.setBounds(10, 350, 100, 17);
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("FECHA");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(10, 20, 47, 17);
+        jLabel11.setBounds(10, 20, 100, 17);
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("TEXTO");
@@ -173,27 +173,27 @@ public class p_recibo_resguardo extends javax.swing.JDialog implements Serializa
 
         recibo.setText("RECIBO");
         getContentPane().add(recibo);
-        recibo.setBounds(140, 420, 90, 23);
+        recibo.setBounds(140, 420, 90, 25);
 
         resguardo.setText("RESGUARDO");
         getContentPane().add(resguardo);
-        resguardo.setBounds(10, 420, 100, 23);
+        resguardo.setBounds(10, 420, 100, 25);
 
         pesos.setText("PESOS");
         getContentPane().add(pesos);
-        pesos.setBounds(10, 450, 100, 23);
+        pesos.setBounds(10, 450, 100, 25);
 
         dolares.setText("DOLARES");
         getContentPane().add(dolares);
-        dolares.setBounds(140, 450, 90, 23);
+        dolares.setBounds(140, 450, 90, 25);
 
         impresora.setText("IMPRESORA");
         getContentPane().add(impresora);
-        impresora.setBounds(10, 480, 120, 23);
+        impresora.setBounds(10, 480, 120, 25);
 
         email.setText("E-MAIL");
         getContentPane().add(email);
-        email.setBounds(140, 480, 90, 23);
+        email.setBounds(140, 480, 90, 25);
 
         setBounds(0, 0, 273, 618);
     }// </editor-fold>//GEN-END:initComponents

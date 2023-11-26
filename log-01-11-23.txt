@@ -1,0 +1,9 @@
+[10:30:42 01/11/2023]
+se ingresa movimiento, id prop.: 643 -- id inq.: 7 -- mqp: 10 -- aqp: 2023 -- detalle: ALQUILER -- entrada: 17.913,28 -- salida: 0,00 -- comision: 1.074,80 -- iva: 236,46 -- tipo: OWL -- fecha: 01/11/2023 -- irpf: 1.880,89 -- irpf tipo: SI -- tipo de pago: CAJA
+------------------------------------------------------------------------
+[10:30:43 01/11/2023]
+PROP - se actualiza saldo a cuenta id prop: 643 -- total: 14740.07
+------------------------------------------------------------------------
+[10:30:45 01/11/2023]
+PROP - se actualiza saldo a cuenta id prop: 643 -- total: 14740.07
+------------------------------------------------------------------------

@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import presentacion.paneles.p_control;
 
 /**
  *
@@ -45,7 +46,7 @@ public class p_movimientos {
         c.close();
         return idobtenido;
     }
-    
+
     public static Integer minimoid() throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
@@ -117,6 +118,30 @@ public class p_movimientos {
         return false;
     }
 
+    public static int cantidad_movimientos_alquiler_para_una_fecha(d_movimiento mov) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        Statement st;
+        ResultSet res;
+
+        try {
+            st = c.createStatement();
+            String consulta = "SELECT count (id)as id FROM movimientos where "
+                    + "prop_id='" + mov.getProp_id() + "' and inq_casa = '" + mov.getInq_casa() + "' and "
+                    + "mqp = '" + mov.getMqp() + "' and aqp = '" + mov.getAqp() + "' and detalle like '%ALQUILER%'";
+            res = st.executeQuery(consulta);
+            while (res.next()) {
+                return res.getInt("id");
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        res.close();
+        c.close();
+        return -1;
+    }
+
     public static Float totalentregassaldo(int prop_id, int inq_casa, int mqp, int aqp) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
@@ -128,8 +153,31 @@ public class p_movimientos {
         try {
             st = c.createStatement();
             res = st.executeQuery("select sum(entrada) as entrada from movimientos where prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "'and "
-                    + "(detalle='A CUENTA ALQUILER' or detalle='A CUENTA: ALQUILER' or detalle='SALDO ALQUILER' or detalle='ALQUILER') and aqp='" + aqp + "'and mqp='" + mqp + "'");
+                    + "(detalle='A CUENTA ALQUILER' or detalle='A CUENTA: ALQUILER' or detalle='SALDO ALQUILER' or detalle='ALQUILER' or detalle='A CUENTA: SALDO ALQUILER DIAS') and aqp='" + aqp + "'and mqp='" + mqp + "'");
             while (res.next()) {
+                total = (res.getFloat("entrada"));
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        res.close();
+        c.close();
+        return total;
+    }
+
+    public static Float totalentregassaldo_no_alquiler(int prop_id, int inq_casa, int mqp, int aqp, String detalle) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        ResultSet res;
+        Statement st;
+        Float total = 0f;
+
+        try {
+            st = c.createStatement();
+            res = st.executeQuery("select sum(entrada) as entrada from movimientos where prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "'and "
+                    + "(detalle='A CUENTA: " + detalle + "' or detalle='A CUENTA: SALDO " + detalle + "' or detalle='SALDO " + detalle + "') and aqp='" + aqp + "'and mqp='" + mqp + "'");
+            while (res.next()) {//A CUENTA: TASA MUNICIPAL
                 total = (res.getFloat("entrada"));
             }
         } catch (SQLException ex) {
@@ -199,7 +247,7 @@ public class p_movimientos {
         c.close();
         return mov;
     }
-    
+
     public static Boolean tiene_recibo(Integer id) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
@@ -1299,6 +1347,29 @@ public class p_movimientos {
         return lista;
     }
 
+    public static Float totalmovimientosentrefechaseinq(Integer prop_id, Integer inq_id, Date fecha1, Date fecha2) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        Statement st;
+        ResultSet res;
+        java.sql.Date sqld1 = ASqlDate(fecha1);
+        java.sql.Date sqld2 = ASqlDate(fecha2);
+
+        try {
+            st = c.createStatement();
+            res = st.executeQuery("select sum(entrada)as total from movimientos where fecha BETWEEN '" + sqld1 + "' and '" + sqld2 + "' and prop_id='" + prop_id + "' and inq_casa='" + inq_id + "' and detalle like '%ALQUILER%'");
+            while (res.next()) {
+                return ((res.getFloat("total")));
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        res.close();
+        c.close();
+        return 0f;
+    }
+
     public static d_movimiento obtenertotalesentrefechas(Date fecha1, Date fecha2) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
@@ -1439,7 +1510,7 @@ public class p_movimientos {
 
         try {
             st = c.createStatement();
-            res = st.executeQuery("select * from gastos_inq where (concat(mqp,aqp)!='" + fecha + "') and (detalle='SALDO ALQUILER' or detalle='ALQUILER MES' or detalle='ALQUILER') and prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "' and estado=0");
+            res = st.executeQuery("select * from gastos_inq where (concat(mqp,aqp)<" + fecha + ") and (detalle='SALDO ALQUILER' or detalle='ALQUILER MES' or detalle='ALQUILER') and prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "' and estado=0");
             while (res.next()) {
                 mov = new d_movimiento();
                 mov.setAqp(res.getInt("aqp"));
@@ -1470,7 +1541,7 @@ public class p_movimientos {
 
         try {
             st = c.createStatement();
-            res = st.executeQuery("select sum(importe) as total from gastos_inq where (concat(mqp,aqp)!='" + fecha + "') and (detalle='SALDO ALQUILER' or detalle='ALQUILER MES' or detalle='ALQUILER') and prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "' and estado=0");
+            res = st.executeQuery("select sum(importe) as total from gastos_inq where (concat(mqp,aqp)<" + fecha + ") and (detalle='SALDO ALQUILER' or detalle='ALQUILER MES' or detalle='ALQUILER') and prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "' and estado=0");
             while (res.next()) {
                 totalmeses = (res.getFloat("total"));
             }

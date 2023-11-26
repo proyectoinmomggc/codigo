@@ -189,7 +189,7 @@ public class p_parametros extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("IVA");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 220, 22, 17);
+        jLabel1.setBounds(10, 220, 90, 17);
 
         txtiva.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtiva);
@@ -198,7 +198,7 @@ public class p_parametros extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("PORC. AUMENTO");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(200, 220, 180, 17);
+        jLabel4.setBounds(200, 220, 250, 17);
 
         txtprocaumento.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtprocaumento);
@@ -207,12 +207,12 @@ public class p_parametros extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("FECHA");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(200, 270, 139, 17);
+        jLabel5.setBounds(200, 270, 200, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("IRPF");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 270, 32, 17);
+        jLabel3.setBounds(10, 270, 100, 17);
 
         txtirpf.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtirpf);
@@ -221,7 +221,7 @@ public class p_parametros extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("CLAVE");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 320, 139, 17);
+        jLabel6.setBounds(10, 320, 200, 17);
 
         txtclave.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtclave);
@@ -254,7 +254,6 @@ public class p_parametros extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(10, 20, 540, 190);
 
-        jdcfecha.setDateFormatString("dd/MM/yyyy");
         jdcfecha.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha);
         jdcfecha.setBounds(200, 290, 138, 30);

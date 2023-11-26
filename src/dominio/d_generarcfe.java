@@ -707,6 +707,226 @@ public class d_generarcfe {
 
         return resultado;
     }
+    
+    public String cfexmlfactura_emitida_dolares(String nombre, String rut, String direccion, String ciudad, String departamento, String pais, String concepto, Float cotizacion_dolar,Float total_recibido, Float iva_recibido, String adenda, Date fecha_recibida) throws Exception {
+        String fecha = formatearfechastring(fecha_recibida);
+        DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df_cotizacion = new DecimalFormat("####.000");
+        String resultado = "";
+
+        String scomision = "";
+        String siva = "";
+
+        scomision = df.format(total_recibido);
+        scomision = scomision.replace(".", "").replace(",", ".");
+
+        siva = df.format(iva_recibido);
+        siva = siva.replace(".", "").replace(",", ".");
+
+        Float comision = Float.parseFloat(scomision);
+        Float iva = Float.parseFloat(siva);
+
+        Float total = comision + iva;
+
+        //String stotal = total.toString();
+        String stotal = df.format(total);
+        stotal = stotal.replace(".", "").replace(",", ".");
+        String stotalcondecimal = stotal;
+        
+        //String stotal = total.toString();
+        String scotizacion = df_cotizacion.format(cotizacion_dolar);
+        scotizacion = scotizacion.replace(".", "").replace(",", ".");
+        String scotizacion_xml = scotizacion;
+
+        //stotal = stotal.replace(".", "").replace(",", ".");
+        String separador = Pattern.quote(".");
+        String[] parts = stotal.split(separador);
+        //String partentera = parts[0]; // 123
+        String partdecimal = "0." + parts[1]; // 654321
+
+        Float fpartedecimal = Float.parseFloat(partdecimal);
+        total = total - fpartedecimal;
+        String stotal1 = df.format(total);
+        stotal1 = stotal1.replace(".", "").replace(",", ".");
+
+        if (partdecimal.equals("0.00")) {
+            partdecimal = "0.0";
+        }
+
+        if (!partdecimal.equals("0.0")) {
+            resultado = "<?xml version='1.0' encoding='UTF-8' ?><nsAdenda:CFE_Adenda xmlns:nsAdenda=\'http://cfe.dgi.gub.uy\'>\n"
+                    + "			  <nsAd:CFE version=\'1.0\' xmlns:nsAd=\'http://cfe.dgi.gub.uy\'>\n"
+                    + "			    <nsAd:eFact>\n"
+                    + "			      <nsAd:Encabezado>\n"
+                    + "			        <nsAd:IdDoc>\n"
+                    + "			          <nsAd:TipoCFE>111</nsAd:TipoCFE>\n"
+                    + "			          <nsAd:Serie>A</nsAd:Serie>\n"
+                    + "			          <nsAd:Nro>2727</nsAd:Nro>\n"
+                    + "			          <nsAd:FchEmis>" + fecha + "</nsAd:FchEmis>\n"
+                    + "			          <nsAd:MntBruto>1</nsAd:MntBruto>\n"
+                    + "			          <nsAd:FmaPago>1</nsAd:FmaPago>\n"
+                    + "			        </nsAd:IdDoc>\n"
+                    + "			        <nsAd:Emisor>\n"
+                    + "			          <nsAd:RUCEmisor>120196190011</nsAd:RUCEmisor>\n"
+                    + "			          <nsAd:RznSoc>Stagno Palermo Diego Fernando</nsAd:RznSoc>\n"
+                    + "			          <nsAd:NomComercial>Stagno Palermo Diego Fernando</nsAd:NomComercial>\n"
+                    + "			          <nsAd:EmiSucursal>Sucursal principal</nsAd:EmiSucursal>\n"
+                    + "			          <nsAd:CdgDGISucur>4</nsAd:CdgDGISucur>\n"
+                    + "			          <nsAd:DomFiscal>18 de Julio 1393</nsAd:DomFiscal>\n"
+                    + "			          <nsAd:Ciudad>PAYSANDU</nsAd:Ciudad>\n"
+                    + "			          <nsAd:Departamento>PAYSANDU</nsAd:Departamento>\n"
+                    + "			        </nsAd:Emisor>\n"
+                    + "			        <nsAd:Receptor>\n"
+                    + "			          "
+                    + "			          <nsAd:TipoDocRecep>2</nsAd:TipoDocRecep>\n"
+                    + "			          <nsAd:CodPaisRecep>UY</nsAd:CodPaisRecep>\n"
+                    + "			          <nsAd:DocRecep>" + rut + "</nsAd:DocRecep>\n"
+                    + "			          <nsAd:RznSocRecep>" + nombre + "</nsAd:RznSocRecep>\n"
+                    + "			          <nsAd:DirRecep>" + direccion + "</nsAd:DirRecep>\n"
+                    + "			          <nsAd:CiudadRecep>" + ciudad + "</nsAd:CiudadRecep>\n"
+                    + "			          <nsAd:DeptoRecep>" + departamento + "</nsAd:DeptoRecep>\n"
+                    + "			          <nsAd:PaisRecep>" + pais + "</nsAd:PaisRecep>\n"
+                    + "			        </nsAd:Receptor>\n"
+                    + "			        <nsAd:Totales>\n"
+                    + "			          <nsAd:TpoMoneda>USD</nsAd:TpoMoneda>\n"
+                    + "			          <nsAd:TpoCambio>" + scotizacion_xml + "</nsAd:TpoCambio>\n"
+                    + "			          <nsAd:MntNoGrv>0</nsAd:MntNoGrv>\n"
+                    + "			          <nsAd:MntNetoIvaTasaMin>0</nsAd:MntNetoIvaTasaMin>\n"
+                    + "			          <nsAd:MntNetoIVATasaBasica>" + comision + "</nsAd:MntNetoIVATasaBasica>\n"
+                    + "			          <nsAd:IVATasaMin>10</nsAd:IVATasaMin>\n"
+                    + "			          <nsAd:IVATasaBasica>22</nsAd:IVATasaBasica>\n"
+                    + "			          <nsAd:MntIVATasaMin>0</nsAd:MntIVATasaMin>\n"
+                    + "			          <nsAd:MntIVATasaBasica>" + iva + "</nsAd:MntIVATasaBasica>\n"
+                    + "			          <nsAd:MntTotal>" + stotalcondecimal + "</nsAd:MntTotal>\n"
+                    + "			          <nsAd:CantLinDet>2</nsAd:CantLinDet>\n"
+                    + "			          <nsAd:MontoNF>-" + partdecimal + "</nsAd:MontoNF>\n"
+                    + "			          <nsAd:MntPagar>" + stotal1 + "</nsAd:MntPagar>\n"
+                    + "			        </nsAd:Totales>\n"
+                    + "			      </nsAd:Encabezado>\n"
+                    + "			      <nsAd:Detalle>\n"
+                    + "			        <nsAd:Item>\n"
+                    + "			          <nsAd:NroLinDet>1</nsAd:NroLinDet>\n"
+                    + "			          <nsAd:IndFact>3</nsAd:IndFact>\n"
+                    + "			          <nsAd:NomItem>" + concepto + "</nsAd:NomItem>\n"
+                    + "			          <nsAd:Cantidad>1.000</nsAd:Cantidad>\n"
+                    + "			          <nsAd:UniMed>N/A</nsAd:UniMed>\n"
+                    + "			          <nsAd:PrecioUnitario>" + stotalcondecimal + "</nsAd:PrecioUnitario>\n"
+                    + "			          <nsAd:MontoItem>" + stotalcondecimal + "</nsAd:MontoItem>\n"
+                    + "			        </nsAd:Item>"
+                    + "<nsAd:Item>\n"
+                    + "			          <nsAd:NroLinDet>2</nsAd:NroLinDet>\n"
+                    + "			          <nsAd:IndFact>7</nsAd:IndFact>\n"
+                    + "			          <nsAd:NomItem>Redondeo</nsAd:NomItem>\n"
+                    + "			          <nsAd:Cantidad>1</nsAd:Cantidad>\n"
+                    + "			          <nsAd:UniMed>N/A</nsAd:UniMed>\n"
+                    + "			          <nsAd:PrecioUnitario>" + partdecimal + "</nsAd:PrecioUnitario>\n"
+                    + "			          <nsAd:MontoItem>" + partdecimal + "</nsAd:MontoItem>\n"
+                    + "			        </nsAd:Item>	"
+                    + ""
+                    + "		        \n"
+                    + "			      </nsAd:Detalle>\n"
+                    + "			      <nsAd:DscRcgGlobal>\n"
+                    + "			      </nsAd:DscRcgGlobal>\n"
+                    + "			      <nsAd:CAEData>\n"
+                    + "			        <nsAd:CAE_ID>1</nsAd:CAE_ID>\n"
+                    + "			        <nsAd:DNro>1</nsAd:DNro>\n"
+                    + "			        <nsAd:HNro>1</nsAd:HNro>\n"
+                    + "			        <nsAd:FecVenc></nsAd:FecVenc>\n"
+                    + "			      </nsAd:CAEData>\n"
+                    + "			    </nsAd:eFact>\n"
+                    + "			  </nsAd:CFE>\n"
+                    + "			  <nsAdenda:Adenda>"
+                    + ""
+                    + "<nsAdenda:AdendaSicfe>\n"
+                    + "      <nsAdenda:IdCaja>N/A</nsAdenda:IdCaja>\n"
+                    + "      <nsAdenda:IdUsuario>N/A</nsAdenda:IdUsuario>\n"
+                    + "    </nsAdenda:AdendaSicfe>" + adenda + "</nsAdenda:Adenda>\n"
+                    + "			</nsAdenda:CFE_Adenda>";
+        } else {
+            resultado = "<?xml version='1.0' encoding='UTF-8' ?><nsAdenda:CFE_Adenda xmlns:nsAdenda=\'http://cfe.dgi.gub.uy\'>\n"
+                    + "			  <nsAd:CFE version=\'1.0\' xmlns:nsAd=\'http://cfe.dgi.gub.uy\'>\n"
+                    + "			    <nsAd:eFact>\n"
+                    + "			      <nsAd:Encabezado>\n"
+                    + "			        <nsAd:IdDoc>\n"
+                    + "			          <nsAd:TipoCFE>111</nsAd:TipoCFE>\n"
+                    + "			          <nsAd:Serie>A</nsAd:Serie>\n"
+                    + "			          <nsAd:Nro>2727</nsAd:Nro>\n"
+                    + "			          <nsAd:FchEmis>" + fecha + "</nsAd:FchEmis>\n"
+                    + "			          <nsAd:MntBruto>1</nsAd:MntBruto>\n"
+                    + "			          <nsAd:FmaPago>1</nsAd:FmaPago>\n"
+                    + "			        </nsAd:IdDoc>\n"
+                    + "			        <nsAd:Emisor>\n"
+                    + "			          <nsAd:RUCEmisor>120196190011</nsAd:RUCEmisor>\n"
+                    + "			          <nsAd:RznSoc>Stagno Palermo Diego Fernando</nsAd:RznSoc>\n"
+                    + "			          <nsAd:NomComercial>Stagno Palermo Diego Fernando</nsAd:NomComercial>\n"
+                    + "			          <nsAd:EmiSucursal>Sucursal principal</nsAd:EmiSucursal>\n"
+                    + "			          <nsAd:CdgDGISucur>4</nsAd:CdgDGISucur>\n"
+                    + "			          <nsAd:DomFiscal>18 de Julio 1393</nsAd:DomFiscal>\n"
+                    + "			          <nsAd:Ciudad>PAYSANDU</nsAd:Ciudad>\n"
+                    + "			          <nsAd:Departamento>PAYSANDU</nsAd:Departamento>\n"
+                    + "			        </nsAd:Emisor>\n"
+                    + "			        <nsAd:Receptor>\n"
+                    + "			          "
+                    + "			          <nsAd:TipoDocRecep>2</nsAd:TipoDocRecep>\n"
+                    + "			          <nsAd:CodPaisRecep>UY</nsAd:CodPaisRecep>\n"
+                    + "			          <nsAd:DocRecep>" + rut + "</nsAd:DocRecep>\n"
+                    + "			          <nsAd:RznSocRecep>" + nombre + "</nsAd:RznSocRecep>\n"
+                    + "			          <nsAd:DirRecep>" + direccion + "</nsAd:DirRecep>\n"
+                    + "			          <nsAd:CiudadRecep>"+ciudad+"</nsAd:CiudadRecep>\n"
+                    + "			          <nsAd:DeptoRecep>"+departamento+"</nsAd:DeptoRecep>\n"
+                    + "			          <nsAd:PaisRecep>"+pais+"</nsAd:PaisRecep>\n"
+                    + "			        </nsAd:Receptor>\n"
+                    + "			        <nsAd:Totales>\n"
+                    + "			          <nsAd:TpoMoneda>USD</nsAd:TpoMoneda>\n"
+                    + "			          <nsAd:TpoCambio>" + scotizacion_xml + "</nsAd:TpoCambio>\n"
+                    + "			          <nsAd:MntNoGrv>0</nsAd:MntNoGrv>\n"
+                    + "			          <nsAd:MntNetoIvaTasaMin>0</nsAd:MntNetoIvaTasaMin>\n"
+                    + "			          <nsAd:MntNetoIVATasaBasica>" + comision + "</nsAd:MntNetoIVATasaBasica>\n"
+                    + "			          <nsAd:IVATasaMin>10</nsAd:IVATasaMin>\n"
+                    + "			          <nsAd:IVATasaBasica>22</nsAd:IVATasaBasica>\n"
+                    + "			          <nsAd:MntIVATasaMin>0</nsAd:MntIVATasaMin>\n"
+                    + "			          <nsAd:MntIVATasaBasica>" + iva + "</nsAd:MntIVATasaBasica>\n"
+                    + "			          <nsAd:MntTotal>" + stotalcondecimal + "</nsAd:MntTotal>\n"
+                    + "			          <nsAd:CantLinDet>1</nsAd:CantLinDet>\n"
+                    + "			          <nsAd:MontoNF>-" + partdecimal + "</nsAd:MontoNF>\n"
+                    + "			          <nsAd:MntPagar>" + stotal1 + "</nsAd:MntPagar>\n"
+                    + "			        </nsAd:Totales>\n"
+                    + "			      </nsAd:Encabezado>\n"
+                    + "			      <nsAd:Detalle>\n"
+                    + "			        <nsAd:Item>\n"
+                    + "			          <nsAd:NroLinDet>1</nsAd:NroLinDet>\n"
+                    + "			          <nsAd:IndFact>3</nsAd:IndFact>\n"
+                    + "			          <nsAd:NomItem>" + concepto + "</nsAd:NomItem>\n"
+                    + "			          <nsAd:Cantidad>1.000</nsAd:Cantidad>\n"
+                    + "			          <nsAd:UniMed>N/A</nsAd:UniMed>\n"
+                    + "			          <nsAd:PrecioUnitario>" + stotalcondecimal + "</nsAd:PrecioUnitario>\n"
+                    + "			          <nsAd:MontoItem>" + stotalcondecimal + "</nsAd:MontoItem>\n"
+                    + "			        </nsAd:Item>"
+                    + "	"
+                    + ""
+                    + "		        \n"
+                    + "			      </nsAd:Detalle>\n"
+                    + "			      <nsAd:DscRcgGlobal>\n"
+                    + "			      </nsAd:DscRcgGlobal>\n"
+                    + "			      <nsAd:CAEData>\n"
+                    + "			        <nsAd:CAE_ID>1</nsAd:CAE_ID>\n"
+                    + "			        <nsAd:DNro>1</nsAd:DNro>\n"
+                    + "			        <nsAd:HNro>1</nsAd:HNro>\n"
+                    + "			        <nsAd:FecVenc></nsAd:FecVenc>\n"
+                    + "			      </nsAd:CAEData>\n"
+                    + "			    </nsAd:eFact>\n"
+                    + "			  </nsAd:CFE>\n"
+                    + "			  <nsAdenda:Adenda>"
+                    + ""
+                    + "<nsAdenda:AdendaSicfe>\n"
+                    + "      <nsAdenda:IdCaja>N/A</nsAdenda:IdCaja>\n"
+                    + "      <nsAdenda:IdUsuario>N/A</nsAdenda:IdUsuario>\n"
+                    + "    </nsAdenda:AdendaSicfe>" + adenda + "</nsAdenda:Adenda>\n"
+                    + "			</nsAdenda:CFE_Adenda>";
+        }
+
+        return resultado;
+    }
 
     public String cfexmlticket_emitida(String nombre, String ci, String direccion, String concepto, Float total_recibido, Float iva_recibido, String adenda, Date fecha_recibida) throws Exception {
         String fecha = formatearfechastring(fecha_recibida);

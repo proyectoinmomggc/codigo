@@ -85,6 +85,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
     Boolean aplicoconvenioreintegro = false;
     Integer plazoextendido = 0;
     Boolean quiereimprimir = false;
+    Boolean quierecancelar = false;
 
     /**
      * Creates new form p_inqpaga1
@@ -148,6 +149,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         jMenu2 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("INGRESO INQUILINO");
@@ -199,7 +201,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("ID PROP");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 20, 70, 17);
+        jLabel4.setBounds(10, 20, 150, 17);
 
         txtprop_id.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtprop_id.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -224,16 +226,19 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblinquilinosMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tblinquilinosMouseEntered(evt);
+            }
         });
         jScrollPane1.setViewportView(tblinquilinos);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 180, 770, 210);
+        jScrollPane1.setBounds(10, 180, 770, 240);
 
         lblcorreccion.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         lblcorreccion.setForeground(java.awt.Color.red);
         getContentPane().add(lblcorreccion);
-        lblcorreccion.setBounds(10, 570, 770, 30);
+        lblcorreccion.setBounds(10, 600, 770, 30);
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton2.setText("PAGAR");
@@ -243,7 +248,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(660, 410, 120, 30);
+        jButton2.setBounds(660, 440, 120, 30);
 
         jButton3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton3.setText("IMPRIMIR");
@@ -253,16 +258,16 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(660, 460, 120, 30);
+        jButton3.setBounds(660, 490, 120, 30);
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("ABONAR ENTREGA ($)");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 390, 160, 17);
+        jLabel8.setBounds(10, 420, 300, 17);
 
         txtabonoentrega.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtabonoentrega);
-        txtabonoentrega.setBounds(10, 410, 360, 30);
+        txtabonoentrega.setBounds(10, 440, 360, 30);
 
         jButton4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton4.setText("IMPRIMIR COPIA");
@@ -272,7 +277,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(660, 510, 120, 30);
+        jButton4.setBounds(660, 540, 120, 30);
 
         jButton5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton5.setText("EXPORTAR");
@@ -282,13 +287,13 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(10, 510, 120, 30);
+        jButton5.setBounds(10, 540, 120, 30);
 
         lbldeuda.setBackground(java.awt.Color.green);
         lbldeuda.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbldeuda.setOpaque(true);
         getContentPane().add(lbldeuda);
-        lbldeuda.setBounds(10, 470, 360, 30);
+        lbldeuda.setBounds(10, 500, 360, 30);
 
         cmbplazo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cmbplazo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "PLAZO VIGENTE", "PLAZO VENCIDO" }));
@@ -299,7 +304,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("ID INQ");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(160, 20, 70, 17);
+        jLabel9.setBounds(160, 20, 150, 17);
 
         jButton6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton6.setText("BUSCAR");
@@ -319,18 +324,18 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("TOTAL DEUDA");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(10, 450, 96, 17);
+        jLabel10.setBounds(10, 480, 230, 17);
 
         jLabel11.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jLabel11.setText("* Tiene entrega a cuenta");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(10, 550, 180, 17);
+        jLabel11.setBounds(10, 580, 180, 17);
 
         txtobservaciones.setEditable(false);
         txtobservaciones.setColumns(20);
         txtobservaciones.setLineWrap(true);
         txtobservaciones.setRows(5);
-        txtobservaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtobservaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane2.setViewportView(txtobservaciones);
 
         getContentPane().add(jScrollPane2);
@@ -371,11 +376,19 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         });
         jMenu2.add(jMenu11);
 
+        jMenu12.setText("VER DETALLE MOVIMIENTOS DE INQUILINO");
+        jMenu12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu12MouseClicked(evt);
+            }
+        });
+        jMenu2.add(jMenu12);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 817, 668);
+        setBounds(0, 0, 817, 715);
     }// </editor-fold>//GEN-END:initComponents
 
     void funcbuscar() {
@@ -383,6 +396,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         d_inquilino inq1 = new d_inquilino();
         Integer prop_id = 0;
         Integer inq_id = 0;
+        quierecancelar = false;
 
         if (txtprop_id.getText().equals("") || txtinq_id.getText().equals("")) {
             return;
@@ -449,9 +463,47 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             if (!inq.getInq_tipoalq().equals("LOCAL") && !inq.getInq_tipoalq().equals("HABITACION")) {
                 JOptionPane.showMessageDialog(this, toUpperCase("inquilino no tiene un tipo de alquiler ingresado"), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
+
+            d_alquileres_info alq = new d_alquileres_info();
+
+            if (alq.tiene_correccion(inq.getProp_id(), inq.getInq_casa())) {
+                return;
+            }
+
+            d_movimiento mov_aux = new d_movimiento();
+            mov_aux = buscarultimoimporteantesdelreajuste(inq);
+
+            if ((obtenercantAnios(inq.buscarfechaicoriginal(inq.getProp_id(), inq.getInq_casa()), new Date()) > 1) && (mov_aux == null)) {
+                //HACE MAS DE UN ANIO NO TIENE MOV PREVIO AL REAJUSTE, DEBE INGRESAR CORRECCION
+                lblcorreccion.setText("POR FAVOR INGRESE EL VALOR DE ALQUILER DEL MES DE REAJUSTE CORRESPONDIENTE");
+                abrir_correccion();
+                /*p_mov_inq_correccion gas = null;
+
+            con.inq = this.inq;
+            gas = new p_mov_inq_correccion(null, true);
+            gas.setVisible(true);*/
+            } else if ((obtenercantAnios(inq.buscarfechaicoriginal(inq.getProp_id(), inq.getInq_casa()), new Date()) > 1) || (mov_aux != null)) {
+                if (mov_aux.getDetalle().equals("SALDO ALQUILER")) {
+                    //CHEQUEAR CANTIDAD DE MOVIMIENTOS DE ESE MES Y ANIO, SI ES MAS DE 1, ACONSEJAR CORRECCION
+                    if (mov_aux.cantidad_movimientos_alquiler_para_una_fecha(mov_aux) > 1) {
+                        lblcorreccion.setText("POR FAVOR INGRESE EL VALOR DE ALQUILER DEL MES DE REAJUSTE CORRESPONDIENTE");
+                        abrir_correccion();
+                    }
+                }
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    void abrir_correccion() {
+        if (inq == null) {
+            return;
+        }
+        p_agregar_correccion fic = null;
+        con.inq = inq;
+        fic = new p_agregar_correccion(null, true);
+        fic.setVisible(true);
     }
 
     String devuelvecorreccion() throws Exception {
@@ -792,9 +844,12 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         //Boolean esgastoinq = false;
         int rows[] = tblinquilinos.getSelectedRows();
         int[] array = new int[rows.length];
+        quierecancelar = false;
         //String dia = "01/";
 
         try {
+            con.controlar_seleccion_irpf(inq.getInq_irpf());
+            con.controlar_seleccion_tipo_alquiler(inq.getInq_tipoalq());
             if (inq != null) {
                 if (inq.inquilino_bloqueado(inq.getProp_id(), inq.getInq_casa())) {
                     throw new Exception("no puede abonar, el inquilino esta bloqueado\n"
@@ -924,9 +979,16 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                         eliminarlistadodeuda();
                         //actualizarcontrato();
                         return true;
-                    } else {
-                        //chequearmesapagarnotengasaldo(fila);
-                        //return false;
+                    } //else {
+                    //chequearmesapagarnotengasaldo(fila);
+                    //return false;
+                    //}
+                    if (quierecancelar) {
+                        return false;
+                    }
+
+                    if (esgastoinq == null) {
+                        return false;//26-09-23 estaba activo
                     }
                     //OBTENER EL ULTIMO MES PAGO MAS UN MES, 
                     //SI COINCIDE CON LA FECHA QUE QUIERE ABONAR, PERMITIR EL PAGO, DE LO CONTRARIO NO.
@@ -1221,6 +1283,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
     }
 
     void generarcomprobanteelectronico(int idmov) throws Exception {
+
         d_movimiento mov = new d_movimiento();
         d_configuracion conf = new d_configuracion();
 
@@ -1257,6 +1320,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         }
 
         obtenercirut(mov.getProp_id(), mov);
+
     }
 
     void obtenercirut(int prop_id, d_movimiento mov) throws Exception {
@@ -1737,6 +1801,23 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         //}
     }//GEN-LAST:event_tblinquilinosMouseClicked
 
+    Boolean ingreso_clave() throws Exception {
+        d_clave cla = new d_clave();
+        JPasswordField pf = new JPasswordField();
+        cla = cla.buscarclave();
+        int ax = JOptionPane.showConfirmDialog(null, pf, "INGRESE CLAVE", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if (ax == JOptionPane.OK_OPTION) {
+            String password = new String(pf.getPassword());
+            if (!password.equals(cla.getClave())) {
+                throw new Exception("clave incorrecta");
+            } else {
+                return true;
+            }
+        } else if (ax != JOptionPane.OK_OPTION) {
+            return false;
+        }
+        return false;
+    }
     private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
         /*
         p_control con = p_control.getInstancia();
@@ -1817,6 +1898,21 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         }
     }//GEN-LAST:event_jMenu11MouseClicked
 
+    private void tblinquilinosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblinquilinosMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblinquilinosMouseEntered
+
+    private void jMenu12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu12MouseClicked
+        p_mov_inq_correccion gas = null;
+
+        if (inq == null) {
+            return;
+        }
+        con.inq = inq;
+        gas = new p_mov_inq_correccion(null, true);
+        gas.setVisible(true);
+    }//GEN-LAST:event_jMenu12MouseClicked
+
     void eliminar_gasto(Integer mqp, Integer aqp, String detalle) throws Exception {
         int ax = JOptionPane.showConfirmDialog(null, toUpperCase("¿desea eliminar el pago con fecha " + mqp + "/" + aqp + " correspondiente a: " + detalle + "?"), "CONFIRMACION", JOptionPane.YES_NO_CANCEL_OPTION);
         if (ax == JOptionPane.NO_OPTION) {
@@ -1826,6 +1922,9 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             return;
         }
         if (ax == JOptionPane.YES_OPTION) {
+            if (!ingreso_clave()) {
+                return;
+            }
             d_gastos_inq gas = new d_gastos_inq();
             gas.setProp_id(inq.getProp_id());
             gas.setInq_casa(inq.getInq_casa());
@@ -2106,7 +2205,22 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                 if (gas.getDetalle().equals("ALQUILER") || gas.getDetalle().equals("SALDO ALQUILER")) {
                     gas.actualizarimporte_y_detalle_luego_de_entrega_alquiler(gas);
                 } else {
-                    gas.actualizarimporte(gas);
+                    String palabra = "SALDO";
+                    String texto = gas.getDetalle();
+                    String detalle = "";
+                    boolean resultado = texto.contains(palabra);
+
+                    if (resultado) {
+                        //System.out.println("palabra encontrada");
+                        detalle = gas.getDetalle();
+                    } else {
+                        //System.out.println("palabra no encontrada");
+                        detalle = "SALDO " + gas.getDetalle();
+                    }
+
+                    gas.actualizarimporte_y_detalle_luego_de_entrega_distinto_alquiler(gas, detalle);
+                    gas.setDetalle(detalle);
+                    //gas.actualizarimporte(gas);
                 }
                 String fechaa = dia + tblinquilinos.getValueAt(row, 3);
                 fecha = parsefechadate(fechaa);
@@ -2229,6 +2343,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
 
                     //return true;
                 } else {
+                    quierecancelar = true;
                     return false;
                 }
             }
@@ -2382,8 +2497,14 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                         //ver si el mes esta repetido
                         v.add(ii + " * $" + con.mostrarnumero(entrega));
                     } else {
-                        v.add(ii);
+                        entrega = revisarentregassaldo_no_alquiler(aux.getProp_id(), aux.getInq_casa(), aux.getMqp(), aux.getAqp(), aux.getDetalle());
+                        if (entrega > 0.0f) {
+                            v.add(ii + " * $" + con.mostrarnumero(entrega));
+                        } else {
+                            v.add(ii);
+                        }
                     }
+
                     v.add(aux.getDetalle());
                     //v.add(formateador.format(aux.getImporte()));
                     v.add(con.mostrarnumero(aux.getImporte()));
@@ -2414,7 +2535,9 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                         if (aux.getEstado() == 0) {
                             String fechaxstrX = "01/" + aux.getMqp() + "/" + aux.getAqp();
                             if (aux.getMqp() != mesactual || aux.getAqp() != anioactual) {
-                                importetotal = importetotal + (aux.getImporte());
+                                if (sesumaimporte) {
+                                    importetotal = importetotal + (aux.getImporte());
+                                }
                             }
                             if (listadeuda != null) {
                                 if (sesumaimporte) {
@@ -2684,6 +2807,8 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                 if (aux.getEstado().equals(0)) {
                     String fechaxstr = "01/" + aux.getMqp() + "/" + aux.getAqp();
                     v = new Vector();
+                    //detalle='A CUENTA ALQUILER' or detalle='A CUENTA: ALQUILER' or detalle='SALDO ALQUILER' or detalle='ALQUILER'
+
                     entrega = revisarentregassaldo(aux.getProp_id(), aux.getInq_casa(), aux.getMqp(), aux.getAqp());
                     if (entrega > 0.0f && (aux.getDetalle().equals("SALDO ALQUILER")
                             || aux.getDetalle().equals("ALQUILER DIAS")
@@ -2696,7 +2821,12 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                         //}
                         v.add(ii + " * $" + con.mostrarnumero(entrega));
                     } else {
-                        v.add(ii);
+                        entrega = revisarentregassaldo_no_alquiler(aux.getProp_id(), aux.getInq_casa(), aux.getMqp(), aux.getAqp(), aux.getDetalle());
+                        if (entrega > 0.0f) {
+                            v.add(ii + " * $" + con.mostrarnumero(entrega));
+                        } else {
+                            v.add(ii);
+                        }
                     }
 
                     v.add(aux.getDetalle());
@@ -2732,7 +2862,9 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                         if (aux.getEstado() == 0) {
                             String fechaxstrX = "01/" + aux.getMqp() + "/" + aux.getAqp();
                             if (aux.getMqp() != mesactual || aux.getAqp() != anioactual) {
-                                importetotal = importetotal + (aux.getImporte());
+                                if (sesumaimporte) {
+                                    importetotal = importetotal + (aux.getImporte());
+                                }
                             }
                             if (listadeuda != null) {
                                 if (sesumaimporte) {
@@ -2848,6 +2980,17 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         mostrarnum = (importetotal);
         //guardarlistadodeuda();
         lbldeuda.setText(con.mostrarnumero(mostrarnum));
+    }
+
+    Float revisarentregassaldo_no_alquiler(int prop_id, int inq_casa, int mqp, int aqp, String detalle) throws Exception {
+
+        d_movimiento mov = new d_movimiento();
+        float montoentregas = 0f;
+
+        montoentregas = mov.totalentregassaldo_no_alquiler(prop_id, inq_casa, mqp, aqp, detalle);
+
+        return montoentregas;
+        //return 0f; PORQUE ESTABA COMENTADA LA FUNCION
     }
 
     Float revisarentregassaldo(int prop_id, int inq_casa, int mqp, int aqp) throws Exception {
@@ -2983,6 +3126,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                 if (aux.getAqp().equals(mov.getAqp()) && aux.getMqp().equals(mov.getMqp()) && aux.getDetalle().equals("SALDO ALQUILER")) {
                     //float a = (aux.getEntrada());
                     //aux.setEntrada(a);
+                    //revisarentregassaldo() devuelve total de entregas de ese mes y anio
                     return aux;
                 }
             }
@@ -3027,16 +3171,18 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
         return mov;
     }
 
-    d_gastos_inq buscargasenlistagastos(d_gastos_inq gas) {
+    d_gastos_inq buscargasenlistagastos(d_gastos_inq gas) throws Exception {
         //d_gastos_inq aux1 = null;
 
-        for (d_gastos_inq aux : listagastos) {
+        /*for (d_gastos_inq aux : listagastos) {
             if (aux.getAqp().equals(gas.getAqp()) && aux.getMqp().equals(gas.getMqp())
                     && (aux.getDetalle().equals(gas.getDetalle()) || aux.getDetalle().equals("ALQUILER"))) {
                 return aux;
             }
-        }
-        return null;
+        }*/
+        return gas.buscaralquilermes(gas);
+
+        //return null;
     }
 
     String generarfechaconsultapago(Date fecha) throws Exception {
@@ -3888,6 +4034,8 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             fecharecorridadate = alq.getFecha();
             fechareajusteanual = fecharecorridadate; //NO SE LE SUMA 1 MES, PORQUE GUARDA MES DE REAJUSTE DIRECTO
         }
+
+        //CONTROLAR QUE fecharecorridadate NO SEA PREVIA A FECHA IC 
         while (!sonfechasiguales(fecharecorridadate, fechaactualdate)) {
             if (sonfechasiguales(fecharecorridadate, fechareajusteanual)) {
                 par = par.buscarparametroporfecha(fechareajusteanual);
@@ -3943,11 +4091,13 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
             if (gas != null) {
                 if (gas.getEstado().equals(0)) {
                     //revisar entregas
-                    total = total - (revisarentregassaldo(prop_id, inq_casa, mqp, aqp));
+                    total = gas.getImporte();
+                    //total = total - (revisarentregassaldo(prop_id, inq_casa, mqp, aqp)); se saco 29/10/23
                     gas.setImporte(total);
                     if (gas.getDetalle().equals("SALDO ALQUILER")
                             || gas.getDetalle().equals("ALQUILER")
-                            || gas.getDetalle().equals("ALQUILER MES")) {
+                            || gas.getDetalle().equals("ALQUILER MES")
+                            || gas.getDetalle().equals("SALDO ALQUILER DIAS")) {
                         //revisar entregas
                         gas.actualizarimporte(gas);
                     }
@@ -4092,7 +4242,26 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
                 i = i + 1;
             }
         }
+
         return mov;
+    }
+
+    int obtenercantAnios(Date first, Date last) {
+        Calendar a = getCalendar(first);
+        Calendar b = getCalendar(last);
+        int diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+        if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH)
+                || (a.get(Calendar.MONTH) == b.get(Calendar.MONTH)
+                && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+            diff--;
+        }
+        return diff;
+    }
+
+    public static Calendar getCalendar(Date date) {
+        Calendar cal = Calendar.getInstance(Locale.getDefault());
+        cal.setTime(date);
+        return cal;
     }
 
     Boolean fechaesanterioracomienzodecontrato(Date fechaic, Date fecha) {
@@ -4143,6 +4312,7 @@ public class p_inqpaga extends javax.swing.JDialog implements observador_mov, ob
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;

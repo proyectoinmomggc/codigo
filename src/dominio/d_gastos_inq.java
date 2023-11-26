@@ -268,6 +268,10 @@ public class d_gastos_inq {
         p_gastos_inq.actualizarimporte_y_detalle_luego_de_entrega_alquiler(gas);
     }
     
+    public void actualizarimporte_y_detalle_luego_de_entrega_distinto_alquiler(d_gastos_inq gas,String detalle) throws Exception {
+        p_gastos_inq.actualizarimporte_y_detalle_luego_de_entrega_distinto_alquiler(gas,detalle);
+    }
+    
     public void actualizarimporte_luegodeentrega(d_gastos_inq gas) throws Exception {
         p_gastos_inq.actualizarimporte_luegodeentrega(gas);
     }

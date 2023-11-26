@@ -454,4 +454,21 @@ public class p_control {
         org.tempuri.ISICFEEmisor port = service.getBasicHttpBindingISICFEEmisor();
         return port.obtenerCFEPorReferencia(usuario, clave, tenant, referenciaERP, devolverImagenQR, devolverXML);
     }
+    
+    public String controlar_seleccion_irpf(String seleccion) throws Exception {
+        if ((!seleccion.equals("SI")&&
+                !seleccion.equals("NO")&&
+                !seleccion.equals("OTRO"))) {
+            throw new Exception("INQUILINO NO TIENE INGRESADO EL TIPO DE RETENCION IRPF, DEBE INGRESARLO");
+        }
+        return seleccion;
+    }
+    
+    public String controlar_seleccion_tipo_alquiler(String seleccion) throws Exception {
+        if ((!seleccion.equals("LOCAL")&&
+                !seleccion.equals("HABITACION"))){
+            throw new Exception("INQUILINO NO TIENE INGRESADO EL TIPO DE ALQUILER, DEBE INGRESARLO");
+        }
+        return seleccion;
+    }
 }

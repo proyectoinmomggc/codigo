@@ -120,7 +120,7 @@ public class listadosobregiros extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("SALDO TOTAL");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 270, 110, 17);
+        jLabel1.setBounds(10, 270, 230, 17);
 
         lblsaldo.setBackground(java.awt.Color.green);
         lblsaldo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

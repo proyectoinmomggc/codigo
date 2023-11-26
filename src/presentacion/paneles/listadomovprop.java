@@ -141,12 +141,12 @@ public class listadomovprop extends javax.swing.JDialog implements observador_mo
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("DESDE");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 120, 47, 17);
+        jLabel1.setBounds(10, 120, 140, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("HASTA");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 120, 100, 17);
+        jLabel3.setBounds(180, 120, 200, 17);
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton1.setText("RECIBO");
@@ -166,7 +166,7 @@ public class listadomovprop extends javax.swing.JDialog implements observador_mo
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("ID PROP");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 20, 80, 17);
+        jLabel4.setBounds(10, 20, 180, 17);
 
         txtprop_id.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtprop_id.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -186,7 +186,7 @@ public class listadomovprop extends javax.swing.JDialog implements observador_mo
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("NOMBRE");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 70, 63, 17);
+        jLabel5.setBounds(10, 70, 160, 17);
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton2.setText("EXPORTAR");
@@ -205,14 +205,12 @@ public class listadomovprop extends javax.swing.JDialog implements observador_mo
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("NOTA");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 330, 38, 17);
+        jLabel6.setBounds(10, 330, 160, 17);
 
-        jdcfecha1.setDateFormatString("dd/MM/yyyy");
         jdcfecha1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha1);
         jdcfecha1.setBounds(10, 140, 138, 30);
 
-        jdcfecha2.setDateFormatString("dd/MM/yyyy");
         jdcfecha2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha2);
         jdcfecha2.setBounds(180, 140, 138, 30);

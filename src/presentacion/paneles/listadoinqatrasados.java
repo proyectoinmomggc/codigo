@@ -154,7 +154,7 @@ public class listadoinqatrasados extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("SALDO TOTAL");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 380, 95, 17);
+        jLabel1.setBounds(10, 380, 220, 17);
 
         lblsaldo.setBackground(java.awt.Color.green);
         lblsaldo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

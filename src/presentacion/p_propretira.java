@@ -78,7 +78,7 @@ public class p_propretira extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("ID PROP");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 20, 57, 17);
+        jLabel1.setBounds(10, 20, 220, 17);
 
         txtpropid.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtpropid.addActionListener(new java.awt.event.ActionListener() {
@@ -97,12 +97,12 @@ public class p_propretira extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("IMPORTE");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(200, 190, 64, 17);
+        jLabel3.setBounds(200, 190, 230, 17);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("DETALLE");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(200, 240, 110, 17);
+        jLabel4.setBounds(200, 240, 270, 17);
 
         txtdetalle.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtdetalle);
@@ -139,12 +139,12 @@ public class p_propretira extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("NOMBRE");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 70, 63, 17);
+        jLabel6.setBounds(10, 70, 230, 17);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("FECHA");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 190, 47, 17);
+        jLabel7.setBounds(10, 190, 210, 17);
 
         lblsaldo.setBackground(java.awt.Color.green);
         lblsaldo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -155,7 +155,7 @@ public class p_propretira extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("SALDO");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 130, 47, 17);
+        jLabel8.setBounds(10, 130, 210, 17);
 
         cmbtipo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cmbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RETIRO", "RESGUARDO", "GIRO ABITAB", "GIRO REDPAGOS", "DEP.BROU", "DEP.BBVA", "DEP.SANTANDER", "DEP.ITAU", "DEP.SCOTIABANK", "OTROS (INGRESAR DETALLE)" }));
@@ -170,14 +170,13 @@ public class p_propretira extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("TIPO");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(10, 240, 32, 17);
+        jLabel9.setBounds(10, 240, 190, 17);
 
-        jdcfecha.setDateFormatString("dd/MM/yyyy");
         jdcfecha.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha);
         jdcfecha.setBounds(10, 210, 138, 30);
 
-        setBounds(0, 0, 590, 385);
+        setBounds(0, 0, 590, 417);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

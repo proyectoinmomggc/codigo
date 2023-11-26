@@ -110,12 +110,12 @@ public class p_listadosreintegrosconvenios extends javax.swing.JDialog implement
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setText("CLAVE");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(10, 220, 70, 17);
+        jLabel16.setBounds(10, 220, 120, 17);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("ID PROP");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 20, 57, 17);
+        jLabel2.setBounds(10, 20, 100, 17);
 
         txtnroprin.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtnroprin.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -129,7 +129,7 @@ public class p_listadosreintegrosconvenios extends javax.swing.JDialog implement
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("ID INQ");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(160, 20, 43, 17);
+        jLabel8.setBounds(160, 20, 90, 17);
 
         txtcasainq.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtcasainq.addKeyListener(new java.awt.event.KeyAdapter() {

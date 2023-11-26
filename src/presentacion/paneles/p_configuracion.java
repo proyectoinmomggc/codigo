@@ -54,7 +54,7 @@ public class p_configuracion extends javax.swing.JDialog implements observador_p
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("¿CONSULTAR IMPRIMIR EN ENTRADA DE INQUILINO?");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 120, 370, 17);
+        jLabel3.setBounds(10, 120, 390, 17);
 
         btnactualizar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnactualizar.setText("ACTUALIZAR");
@@ -68,27 +68,27 @@ public class p_configuracion extends javax.swing.JDialog implements observador_p
 
         cmbimprimir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
         getContentPane().add(cmbimprimir);
-        cmbimprimir.setBounds(380, 110, 70, 30);
+        cmbimprimir.setBounds(400, 110, 70, 30);
 
         cmbclave.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
         getContentPane().add(cmbclave);
-        cmbclave.setBounds(170, 10, 70, 30);
+        cmbclave.setBounds(200, 10, 70, 30);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("¿GENERAR CFE AUTOMATICO?");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 70, 220, 17);
+        jLabel4.setBounds(10, 70, 240, 17);
 
         cmbcfe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
         getContentPane().add(cmbcfe);
-        cmbcfe.setBounds(230, 60, 70, 30);
+        cmbcfe.setBounds(260, 60, 70, 30);
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setText("¿CONSULTAR CLAVE?");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(10, 20, 160, 17);
+        jLabel17.setBounds(10, 20, 180, 17);
 
-        setBounds(0, 0, 478, 255);
+        setBounds(0, 0, 541, 255);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed

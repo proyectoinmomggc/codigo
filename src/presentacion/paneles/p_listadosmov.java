@@ -185,12 +185,12 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("DESDE");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 20, 47, 17);
+        jLabel1.setBounds(10, 20, 100, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("REPORTE");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 70, 80, 17);
+        jLabel3.setBounds(180, 70, 140, 17);
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton1.setText("FILTRAR");
@@ -215,7 +215,7 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("ENTRADA");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 380, 80, 17);
+        jLabel4.setBounds(10, 380, 140, 17);
 
         txtentrada.setEditable(false);
         txtentrada.setBackground(java.awt.Color.green);
@@ -227,7 +227,7 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("SALIDA");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 440, 70, 17);
+        jLabel5.setBounds(10, 440, 130, 17);
 
         txtsalida.setEditable(false);
         txtsalida.setBackground(java.awt.Color.green);
@@ -239,7 +239,7 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("IVA");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(280, 380, 22, 17);
+        jLabel6.setBounds(280, 380, 80, 17);
 
         txtiva.setEditable(false);
         txtiva.setBackground(java.awt.Color.green);
@@ -251,7 +251,7 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("COMISION");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(280, 440, 90, 17);
+        jLabel7.setBounds(280, 440, 150, 17);
 
         txtcomision.setEditable(false);
         txtcomision.setBackground(java.awt.Color.green);
@@ -263,7 +263,7 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("IRPF RETENIDO");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(550, 380, 107, 17);
+        jLabel8.setBounds(550, 380, 170, 17);
 
         txtirpf.setEditable(false);
         txtirpf.setBackground(java.awt.Color.green);
@@ -280,7 +280,7 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("GASTOS INMO");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(550, 440, 99, 17);
+        jLabel9.setBounds(550, 440, 160, 17);
 
         txtgastos.setEditable(false);
         txtgastos.setBackground(java.awt.Color.green);
@@ -292,7 +292,7 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("SUMAR");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(10, 70, 51, 17);
+        jLabel10.setBounds(10, 70, 110, 17);
 
         txtsumar.setText("0");
         getContentPane().add(txtsumar);
@@ -348,7 +348,7 @@ public class p_listadosmov extends javax.swing.JDialog implements observador_mov
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("HASTA");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(180, 20, 70, 17);
+        jLabel11.setBounds(180, 20, 130, 17);
 
         jMenu5.setText("CAJA");
         jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {

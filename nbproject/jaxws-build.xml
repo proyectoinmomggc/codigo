@@ -18,8 +18,8 @@
     </target>
     <target name="wsimport-client-Sicfe" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/Sicfe"/>
-        <property name="wsdl-Sicfe" location="xml-resources/web-service-references/Sicfe/wsdl/sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Sicfe" destdir="${build.generated.dir}/jax-wsCache/Sicfe" wsdl="${wsdl-Sicfe}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc?wsdl" xnocompile="true" xendorsed="true">
+        <property name="wsdl-Sicfe" location="xml-resources/web-service-references/Sicfe/wsdl/sicfe.eborne.com.uy_89/PROD/Services/Sicfe.svc.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Sicfe" destdir="${build.generated.dir}/jax-wsCache/Sicfe" wsdl="${wsdl-Sicfe}" catalog="catalog.xml" extension="true" verbose="true" fork="false" wsdlLocation="http://sicfe.eborne.com.uy:89/PROD/Services/Sicfe.svc?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-Sicfe}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/Sicfe"/>
         </wsimport>

@@ -96,7 +96,7 @@ public class p_mgrupoirpf extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("ID PROP");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 240, 57, 17);
+        jLabel6.setBounds(10, 240, 190, 17);
 
         txtnropro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,12 +158,12 @@ public class p_mgrupoirpf extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("NOMBRE");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 70, 63, 17);
+        jLabel5.setBounds(10, 70, 170, 17);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("CI");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 340, 14, 17);
+        jLabel7.setBounds(10, 340, 170, 17);
 
         lblnombreprop.setBackground(java.awt.Color.green);
         lblnombreprop.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -202,7 +202,7 @@ public class p_mgrupoirpf extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("PORCENTAJE");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 390, 100, 17);
+        jLabel8.setBounds(10, 390, 190, 17);
 
         txtporcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,7 +215,7 @@ public class p_mgrupoirpf extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("NOMBRE");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(10, 290, 100, 17);
+        jLabel9.setBounds(10, 290, 170, 17);
 
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,7 +238,7 @@ public class p_mgrupoirpf extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("ID PROP");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 20, 57, 17);
+        jLabel3.setBounds(10, 20, 170, 17);
 
         lblnropro.setBackground(java.awt.Color.green);
         lblnropro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

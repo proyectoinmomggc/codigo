@@ -76,7 +76,7 @@ public class p_proppaga extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("ID PROP");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 20, 57, 17);
+        jLabel1.setBounds(10, 20, 150, 17);
 
         txtpropid.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtpropid.addActionListener(new java.awt.event.ActionListener() {
@@ -90,12 +90,12 @@ public class p_proppaga extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("IMPORTE");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(200, 140, 64, 17);
+        jLabel3.setBounds(200, 140, 150, 17);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("DETALLE");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 190, 100, 17);
+        jLabel4.setBounds(10, 190, 190, 17);
 
         txtdetalle.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtdetalle);
@@ -128,14 +128,13 @@ public class p_proppaga extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("NOMBRE");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 70, 63, 17);
+        jLabel6.setBounds(10, 70, 150, 17);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("FECHA");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 140, 47, 17);
+        jLabel7.setBounds(10, 140, 140, 17);
 
-        jdcfecha.setDateFormatString("dd/MM/yyyy");
         jdcfecha.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha);
         jdcfecha.setBounds(10, 160, 138, 30);
@@ -165,7 +164,7 @@ public class p_proppaga extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 530, 311);
+        setBounds(0, 0, 530, 326);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

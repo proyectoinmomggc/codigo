@@ -32,7 +32,7 @@ public class p_gastos_inq {
 
         try {
             st = c.createStatement();
-            res = st.executeQuery("select * from gastos_inq where prop_id='" + gas.getProp_id() + "'and inq_casa='" + gas.getInq_casa() + "' and detalle='" + gas.getDetalle() + "' and mqp='" + gas.getMqp() + "' and aqp='" + gas.getAqp() + "' and estado=0");
+            res = st.executeQuery("select * from gastos_inq where prop_id='" + gas.getProp_id() + "'and inq_casa='" + gas.getInq_casa() + "' and (detalle='" + gas.getDetalle() + "' or detalle='SALDO ALQUILER DIAS') and mqp='" + gas.getMqp() + "' and aqp='" + gas.getAqp() + "' and estado=0");
             while (res.next()) {
                 gas1 = new d_gastos_inq();
                 gas1.setProp_id(Integer.parseInt(res.getString("prop_id")));
@@ -245,7 +245,7 @@ public class p_gastos_inq {
 
         try {
             st = c.createStatement();
-            res = st.executeQuery("select * from gastos_inq where prop_id='" + gas.getProp_id() + "'and inq_casa='" + gas.getInq_casa() + "' and (detalle='" + gas.getDetalle() + "' or detalle='ALQUILER MES' or detalle='ALQUILER') and mqp='" + gas.getMqp() + "' and aqp='" + gas.getAqp() + "'");
+            res = st.executeQuery("select * from gastos_inq where prop_id='" + gas.getProp_id() + "'and inq_casa='" + gas.getInq_casa() + "' and (detalle='" + gas.getDetalle() + "' or detalle='ALQUILER MES' or detalle='ALQUILER' or detalle='SALDO ALQUILER DIAS' or detalle='ALQUILER DIAS') and mqp='" + gas.getMqp() + "' and aqp='" + gas.getAqp() + "'");
             while (res.next()) {
                 gas1 = new d_gastos_inq();
                 gas1.setProp_id(Integer.parseInt(res.getString("prop_id")));
@@ -542,6 +542,27 @@ public class p_gastos_inq {
 
         try {
             pst = c.prepareStatement("Update gastos_inq set detalle='SALDO ALQUILER', importe=?, estado=? Where prop_id=? and inq_casa=? and aqp=? and mqp=? and (detalle='ALQUILER' or detalle='SALDO ALQUILER')");
+            pst.setFloat(1, gas.getImporte());
+            pst.setInt(2, gas.getEstado());
+            pst.setInt(3, gas.getProp_id());
+            pst.setInt(4, gas.getInq_casa());
+            pst.setInt(5, gas.getAqp());
+            pst.setInt(6, gas.getMqp());
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        c.close();
+    }
+    
+    public static void actualizarimporte_y_detalle_luego_de_entrega_distinto_alquiler(d_gastos_inq gas,String detalle) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        PreparedStatement pst;
+
+        try {
+            pst = c.prepareStatement("Update gastos_inq set detalle='"+detalle+"', importe=?, estado=? Where prop_id=? and inq_casa=? and aqp=? and mqp=? and (detalle='"+gas.getDetalle()+"')");
             pst.setFloat(1, gas.getImporte());
             pst.setInt(2, gas.getEstado());
             pst.setInt(3, gas.getProp_id());

@@ -91,7 +91,7 @@ public class p_gastocta extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("ID PROP");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 20, 57, 17);
+        jLabel1.setBounds(10, 20, 290, 17);
 
         txtpropid.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtpropid.addActionListener(new java.awt.event.ActionListener() {
@@ -148,17 +148,17 @@ public class p_gastocta extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("NOMBRE PROPIETARIO");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 70, 161, 17);
+        jLabel6.setBounds(10, 70, 460, 17);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("FECHA");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 200, 47, 17);
+        jLabel7.setBounds(10, 200, 90, 17);
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("MES");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(200, 250, 31, 17);
+        jLabel8.setBounds(200, 250, 60, 17);
 
         txtmqp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtmqp);
@@ -167,7 +167,7 @@ public class p_gastocta extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("AÑO");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(200, 300, 30, 17);
+        jLabel9.setBounds(200, 300, 90, 17);
 
         txtaqp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtaqp);
@@ -176,7 +176,7 @@ public class p_gastocta extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("IVA");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(10, 360, 22, 17);
+        jLabel10.setBounds(10, 360, 150, 17);
 
         txtiva.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtiva.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +190,7 @@ public class p_gastocta extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("COMISION");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(200, 360, 72, 17);
+        jLabel11.setBounds(200, 360, 140, 17);
 
         txtcomision.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtcomision);
@@ -199,9 +199,8 @@ public class p_gastocta extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("SALDO ACTUAL");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(10, 130, 105, 17);
+        jLabel12.setBounds(10, 130, 300, 17);
 
-        jdcfecha.setDateFormatString("dd/MM/yyyy");
         jdcfecha.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha);
         jdcfecha.setBounds(10, 220, 138, 30);

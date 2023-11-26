@@ -330,7 +330,7 @@ public class p_resguardo extends javax.swing.JDialog implements Serializable, Fo
         if (pcfe == null) {
             throw new Exception("debe ingresar parametros cfe: nombre, clave y tenant");
         }
-        controlar_campos();
+        //controlar_campos();
         nombre = txtnombre.getText();
         ci = txtci.getText();
         direccion = txtdireccion.getText();
@@ -458,7 +458,7 @@ public class p_resguardo extends javax.swing.JDialog implements Serializable, Fo
                 gt.getReferenciaERP2(), gt.getDevolverQR(), gt.getSizeQR(),
                 gt.getImprime(), gt.getRecurso(), gt.getTemplate(), gt.getDevolverXML(),
                 gt.getErpPideValidacion(), gt.getVersion());
-        //i = envio.getCodigo();
+        //i = envio.getCodigo(); 4547800
         if (envio.getCodigo() != 0) {
             while (envio.getCodigo() == 100009) {
                 id_mov = id_mov + 1;

@@ -262,6 +262,15 @@
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu33MouseClicked"/>
                       </Events>
                     </Menu>
+                    <Menu class="javax.swing.JMenu" name="jMenu42">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="EMITIR FACTURA DOLARES"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu42MouseClicked"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu42ActionPerformed"/>
+                      </Events>
+                    </Menu>
                   </SubComponents>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="jMenu32">
@@ -416,8 +425,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="lbldgi" min="-2" pref="124" max="-2" attributes="0"/>
-              <EmptySpace pref="319" max="32767" attributes="0"/>
+              <Component id="lbldgi" min="-2" pref="336" max="-2" attributes="0"/>
+              <EmptySpace pref="107" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -448,7 +457,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="8.1"/>
+        <Property name="text" type="java.lang.String" value="8.9"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbldgi">

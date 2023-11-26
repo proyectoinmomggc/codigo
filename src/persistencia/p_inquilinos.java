@@ -273,7 +273,7 @@ public class p_inquilinos {
         return lista;
 
     }
-    
+
     public static List<d_inquilino> listarinquilinosbloqueados() throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
@@ -349,9 +349,13 @@ public class p_inquilinos {
             Integer mes = devuelvemes(new Date());
             Integer anio = devuelveanio(new Date());
             String fecha_filtro = (mes + "" + anio);
-            res = st.executeQuery("select prop_id, inq_casa,count(*) as total_meses,sum(importe)as total_importe from gastos_inq where (concat(mqp,aqp)!='" + fecha_filtro + "') and \n"
+            res = st.executeQuery("select prop_id, inq_casa,count(*) as total_meses,sum(importe)as total_importe from gastos_inq where (concat(mqp,aqp)<" + fecha_filtro + ") and \n"
                     + "(detalle='SALDO ALQUILER' or detalle='ALQUILER MES' or detalle='ALQUILER') \n"
                     + " and estado=0 group by prop_id, inq_casa order by prop_id");
+
+            /*res = st.executeQuery("select prop_id, inq_casa,count(*) as total_meses,sum(importe)as total_importe from gastos_inq where (concat(mqp,aqp)!='" + fecha_filtro + "') and \n"
+                    + "(detalle='SALDO ALQUILER' or detalle='ALQUILER MES' or detalle='ALQUILER') \n"
+                    + " and estado=0 group by prop_id, inq_casa order by prop_id");*/
             while (res.next()) {
                 gas = new d_gastos_inq();
                 gas.setProp_id(Integer.parseInt(res.getString("prop_id")));
@@ -382,6 +386,48 @@ public class p_inquilinos {
     }
 
     public static Date buscarfechareajusteoriginal(Integer prop_id, Integer inq_casa) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        Statement st;
+        ResultSet res;
+
+        try {
+            st = c.createStatement();
+            res = st.executeQuery("select arlmrl from inquilinos where prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "'");
+            while (res.next()) {
+                return res.getDate("arlmrl");
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        res.close();
+        c.close();
+        return null;
+    }
+
+    public static Date buscarfechaicoriginal(Integer prop_id, Integer inq_casa) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        Statement st;
+        ResultSet res;
+
+        try {
+            st = c.createStatement();
+            res = st.executeQuery("select inq_fechaic from inquilinos where prop_id='" + prop_id + "'and inq_casa='" + inq_casa + "'");
+            while (res.next()) {
+                return res.getDate("inq_fechaic");
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        res.close();
+        c.close();
+        return null;
+    }
+
+    public static Date buscarfechaarlmrloriginal(Integer prop_id, Integer inq_casa) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
         c = conex.crearconexion();
@@ -672,7 +718,7 @@ public class p_inquilinos {
         }
         c.close();
     }
-    
+
     public static void desbloquear_inquilino(Integer prop_id, Integer inq_casa) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();
@@ -687,7 +733,7 @@ public class p_inquilinos {
         }
         c.close();
     }
-    
+
     public static Boolean inquilino_bloqueado(Integer prop_id, Integer inq_casa) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();

@@ -80,7 +80,6 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         cmbmes = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtanio = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblgrupoirpf = tblgrupoirpf = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex) {
@@ -121,7 +120,7 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("AÑO");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 100, 30, 17);
+        jLabel3.setBounds(180, 100, 130, 17);
 
         txtanio.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtanio.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -131,16 +130,6 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         });
         getContentPane().add(txtanio);
         txtanio.setBounds(10, 120, 138, 30);
-
-        jButton2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jButton2.setText("ACTUALIZAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(460, 120, 120, 30);
 
         tblgrupoirpf.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tblgrupoirpf.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,7 +170,7 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("MES");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 50, 31, 17);
+        jLabel4.setBounds(10, 50, 130, 17);
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("TOTAL ($):");
@@ -191,7 +180,7 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("MES");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(180, 50, 31, 17);
+        jLabel6.setBounds(180, 50, 130, 17);
 
         cmbmes1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cmbmes1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
@@ -206,7 +195,7 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("AÑO");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 100, 30, 17);
+        jLabel7.setBounds(10, 100, 130, 17);
 
         txtanio1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtanio1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -231,45 +220,6 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
 
         setBounds(0, 0, 610, 474);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //funcbuscar();
-        List<d_grupoirpf> listaproppormes = new ArrayList<>();
-        List<d_grupoirpf> listaciprop = new ArrayList<>();
-        d_grupoirpf gru = new d_grupoirpf();
-        d_movimiento mov = new d_movimiento();
-        String fecha;
-        Float montoirpf = 0f;
-
-        try {
-            control();
-            fecha = cmbmes.getSelectedItem().toString() + txtanio.getText();
-            listaproppormes = gru.listarproppormes(fecha);
-            Integer mes = Integer.parseInt(cmbmes.getSelectedItem().toString());
-            Integer anio = Integer.parseInt(txtanio.getText());
-            if (listaproppormes.size() > 0) {
-                for (d_grupoirpf aux : listaproppormes) {
-                    montoirpf = mov.obtenertotalirpfpormes(aux.getProp_id(), mes, anio);
-                    listaciprop = gru.listarciporproppago(aux.getProp_id());
-                    if (listaciprop.size() > 0) {
-                        for (d_grupoirpf aux1 : listaciprop) {
-                            //gru = new d_grupoirpf();
-                            gru = grupoirpfdeprop(aux1.getCigrupo(), aux.getProp_id());
-                            if (existeciparafecha(gru.getCigrupo(), fecha, aux.getProp_id())) {//cigrupo,fecha
-                                //actualizar
-                                gru.setMonto(montoirpf * gru.getPorcentaje() / 100);
-                                gru.setFecha(fecha);
-                                gru.actualizarmontogrupoirpf(gru);
-                            }
-                        }
-                    }
-                }
-            }
-            funcbuscar();
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     Boolean existeciparafecha(String cigrupo, String fecha, Integer prop_id) throws Exception {
         d_grupoirpf aux = new d_grupoirpf();
@@ -424,21 +374,21 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, toUpperCase(e), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-            */
+         */
         //cmbmes.getSelectedItem().toString(), txtanio.getText(),
-                    //cmbmes1.getSelectedItem().toString(), txtanio1.getText()
-            crear_pdf("REPORTE DE MONTOS IRPF ENTRE: "+cmbmes.getSelectedItem().toString()+"/"+
-                    txtanio.getText()+" Y "+cmbmes1.getSelectedItem().toString()+"/"+txtanio1.getText());
+        //cmbmes1.getSelectedItem().toString(), txtanio1.getText()
+        crear_pdf("REPORTE DE MONTOS IRPF ENTRE: " + cmbmes.getSelectedItem().toString() + "/"
+                + txtanio.getText() + " Y " + cmbmes1.getSelectedItem().toString() + "/" + txtanio1.getText());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     void crear_pdf(String clave) {
-        if(listagrupoirpf_pdf==null){
+        if (listagrupoirpf_pdf == null) {
             return;
         }
-        if(listagrupoirpf_pdf.isEmpty()){
+        if (listagrupoirpf_pdf.isEmpty()) {
             return;
         }
-        if(monto_total==0f){
+        if (monto_total == 0f) {
             return;
         }
         p_control con = p_control.getInstancia();
@@ -447,8 +397,8 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         try {
             PdfWriter.getInstance(document, new FileOutputStream("listado_irpf.pdf"));
             document.open();
-            Image logo=Image.getInstance("logoreportes.png");
-            Paragraph p=new Paragraph(clave);
+            Image logo = Image.getInstance("logoreportes.png");
+            Paragraph p = new Paragraph(clave);
             p.setAlignment(Element.ALIGN_CENTER);
             p.setSpacingAfter(10f);
             //logo.setAbsolutePosition(150f, 650f);
@@ -456,15 +406,12 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
             logo.setAlignment(Element.ALIGN_CENTER);
             document.add(logo);
             document.add(p);
-            
 
             // Este codigo genera una tabla de 3 columnas
             PdfPTable table = new PdfPTable(5);
-            
+
             // addCell() agrega una celda a la tabla, el cambio de fila
             // ocurre automaticamente al llenar la fila
-
-
             PdfPCell cell_prop_id;
             PdfPCell cell_nombre;
             PdfPCell cell_ci;
@@ -510,12 +457,12 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
             celdaFinal.setColspan(5);
             celdaFinal.setBackgroundColor(new BaseColor(231, 230, 230));
             celdaFinal.setPaddingBottom(8);
-            
+
             table.addCell(celdaFinal);
 
             // Agregamos la tabla al documento            
             document.add(table);
-            
+
             document.close();
             abrir("listado_irpf.pdf");
         } catch (Exception e) {
@@ -530,7 +477,7 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         File path = new File(nombrepdf);
         Desktop.getDesktop().open(path);
     }
-    
+
     Integer devuelveanio(Date fecha) {
         String formato = "yyyy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(formato);
@@ -568,9 +515,75 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbmesKeyPressed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        p_control con = p_control.getInstancia();
         lbltotal.setText("0");
-        funcbuscar();
+        //funcbuscar();
+        List<d_grupoirpf> listaproppormes = new ArrayList<>();
+        List<d_grupoirpf> listaciprop = new ArrayList<>();
+        d_grupoirpf gru = new d_grupoirpf();
+        d_movimiento mov = new d_movimiento();
+        String fecha;
+        Float montoirpf = 0f;
+        //Float prueba_monto = 0f;
+        try {
+            control();
+            //obtener_total();
+            fecha = cmbmes.getSelectedItem().toString() + txtanio.getText();
+            listaproppormes = gru.listarproppormes(fecha);
+            Integer mes = Integer.parseInt(cmbmes.getSelectedItem().toString());
+            Integer anio = Integer.parseInt(txtanio.getText());
+            if (listaproppormes.size() > 0) {
+                for (d_grupoirpf aux : listaproppormes) {
+                    montoirpf = mov.obtenertotalirpfpormes(aux.getProp_id(), mes, anio);
+                    //prueba_monto+=montoirpf;
+                    listaciprop = gru.listarciporproppago(aux.getProp_id());
+                    if (listaciprop.size() > 0) {
+                        for (d_grupoirpf aux1 : listaciprop) {
+                            //gru = new d_grupoirpf();
+                            gru = grupoirpfdeprop(aux1.getCigrupo(), aux.getProp_id());
+                            if (existeciparafecha(gru.getCigrupo(), fecha, aux.getProp_id())) {//cigrupo,fecha
+                                //actualizar
+                                gru.setMonto(montoirpf * gru.getPorcentaje() / 100);
+                                gru.setFecha(fecha);
+                                gru.actualizarmontogrupoirpf(gru);
+                            }
+                        }
+                    }
+                }
+            }
+            //System.out.println(con.mostrarnumero(prueba_monto));
+            funcbuscar();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    Float obtener_total() throws ParseException, Exception {
+        String fechaaconvertir_1 = "01/" + cmbmes.getSelectedItem() + "/" + txtanio.getText();
+        String fechaaconvertir_2 = "01/" + cmbmes1.getSelectedItem() + "/" + txtanio1.getText();
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+        Calendar calendar_2 = Calendar.getInstance();
+        calendar_2.setTime(formato.parse(fechaaconvertir_2));// all done);
+
+        int ultimo_dia_fecha2 = calendar_2.getActualMaximum(calendar_2.DAY_OF_MONTH);
+
+        fechaaconvertir_2 = String.valueOf(ultimo_dia_fecha2) + "/" + cmbmes1.getSelectedItem() + "/" + txtanio1.getText();
+
+        //System.out.println("RANGO: "+fechaaconvertir_1+" - "+fechaaconvertir_2);
+        //convertir string a date y usar misma funcion que movimientos diarios para obtener total irpf.
+        Date fecha_1, fecha_2;
+
+        fecha_1 = parsefechadate(fechaaconvertir_1);
+        fecha_2 = parsefechadate(fechaaconvertir_2);
+
+        d_movimiento m = new d_movimiento();
+        m = m.obtenertotalesirpfentrefechas(fecha_1, fecha_2);
+
+        return m.getIrpf();
+    }
+
 
     private void cmbmes1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbmes1KeyPressed
         // TODO add your handling code here:
@@ -652,15 +665,15 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
         p_control con = p_control.getInstancia();
         d_grupoirpf gru = new d_grupoirpf();
         d_grupoirpf gru1 = null;
-        d_propietario p=null;
+        d_propietario p = null;
         float total = 0f;
         Vector v;
         String fecha_columna;
 
         try {
             cleartable();
-            fecha_columna=cmbmes.getSelectedItem().toString()+"/"+txtanio.getText()+" - "+
-                    cmbmes1.getSelectedItem().toString()+"/"+txtanio1.getText();
+            fecha_columna = cmbmes.getSelectedItem().toString() + "/" + txtanio.getText() + " - "
+                    + cmbmes1.getSelectedItem().toString() + "/" + txtanio1.getText();
             monto_total = 0f;
             //listagrupoirpf = gru.listarmontospormes(fecha);
             listagrupoirpf_pdf = null;
@@ -669,7 +682,7 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
             for (d_grupoirpf aux : listagrupoirpf) {
                 gru1 = new d_grupoirpf();
                 v = new Vector();
-                p=new d_propietario();
+                p = new d_propietario();
                 gru1.setProp_id(aux.getProp_id());
                 gru1.setNombre(aux.getNombre());
                 gru1.setCigrupo(aux.getCigrupo());
@@ -678,7 +691,7 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
                 gru1.setFecha(fecha_columna);
                 gru1.actualizarmontogrupoirpfporfecha(gru1);
                 if (gru1.getMonto() > 0f) {
-                    total += gru1.getMonto();
+                    //total += gru1.getMonto();
                     v.add(gru1.getProp_id());
                     v.add(gru1.getNombre());
                     v.add(gru1.getCigrupo());
@@ -688,8 +701,11 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
                     listagrupoirpf_pdf.add(gru1);
                 }
             }
-            lbltotal.setText(con.mostrarnumero(total));
-            monto_total = total;
+            if (!listagrupoirpf.isEmpty()) {
+                monto_total = obtener_total();
+            }
+            lbltotal.setText(con.mostrarnumero(monto_total));
+            //monto_total = total;
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -762,7 +778,6 @@ public class p_listargrupoirpf extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbmes;
     private javax.swing.JComboBox<String> cmbmes1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel3;

@@ -102,27 +102,27 @@ public class p_fichapropietario extends javax.swing.JDialog implements observado
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("ID PROP");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 20, 57, 17);
+        jLabel2.setBounds(10, 20, 120, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("CIUDAD");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 120, 53, 17);
+        jLabel3.setBounds(10, 120, 120, 17);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("DEPARTAMENTO");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(280, 120, 140, 17);
+        jLabel4.setBounds(280, 120, 200, 17);
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("NUMERO");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 220, 63, 17);
+        jLabel5.setBounds(10, 220, 130, 17);
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("PAIS");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 170, 31, 17);
+        jLabel6.setBounds(10, 170, 100, 17);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setForeground(java.awt.Color.red);
@@ -164,7 +164,7 @@ public class p_fichapropietario extends javax.swing.JDialog implements observado
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel18.setText("SALDO");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(280, 20, 47, 17);
+        jLabel18.setBounds(280, 20, 110, 17);
 
         lblsaldo.setBackground(java.awt.Color.green);
         lblsaldo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -224,17 +224,17 @@ public class p_fichapropietario extends javax.swing.JDialog implements observado
         caract.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         caract.setText("0/255");
         getContentPane().add(caract);
-        caract.setBounds(140, 270, 70, 17);
+        caract.setBounds(140, 270, 130, 17);
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("NOMBRE");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 70, 63, 17);
+        jLabel8.setBounds(10, 70, 130, 17);
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("DIRECCION");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(280, 70, 90, 17);
+        jLabel9.setBounds(280, 70, 150, 17);
 
         txtdepartamento.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtdepartamento);
@@ -247,7 +247,7 @@ public class p_fichapropietario extends javax.swing.JDialog implements observado
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("CI RUT");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(280, 170, 46, 17);
+        jLabel10.setBounds(280, 170, 110, 17);
 
         txtpais.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(txtpais);
@@ -256,7 +256,7 @@ public class p_fichapropietario extends javax.swing.JDialog implements observado
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("OBSERVACIONES");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(10, 270, 130, 17);
+        jLabel11.setBounds(10, 270, 190, 17);
 
         jMenu1.setText("OPCIONES");
 

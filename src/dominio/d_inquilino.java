@@ -308,6 +308,22 @@ public class d_inquilino {
         }
     }
     
+    public Date buscarfechaicoriginal(Integer nroprin, Integer casainq) throws Exception {
+        try {
+            return p_inquilinos.buscarfechaicoriginal(nroprin, casainq);
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+    }
+    
+    public Date buscarfechaarlmrloriginal(Integer nroprin, Integer casainq) throws Exception {
+        try {
+            return p_inquilinos.buscarfechaarlmrloriginal(nroprin, casainq);
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+    }
+    
     public Date devuelve_fecha_ic(Integer nroprin, Integer casainq) throws Exception {
         try {
             return p_inquilinos.devuelve_fecha_ic(nroprin, casainq);

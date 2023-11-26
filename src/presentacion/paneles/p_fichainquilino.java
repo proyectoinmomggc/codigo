@@ -19,6 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
@@ -29,6 +30,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import persistencia.p_conexion;
 import presentacion.p_gastocta_inq;
+import presentacion.p_mov_inq_correccion;
 
 /**
  *
@@ -56,6 +58,9 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         cargarinquilino();
 
         caract.setText(String.valueOf(cant_caract_observaciones()) + "/255");
+
+        //Date f12 = new Date(124, 5,3);
+        //System.out.println(obtenerAnios(f12,new Date()));
     }
 
     void cargar_estado() {
@@ -167,7 +172,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("PLAZO");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(200, 270, 60, 17);
+        jLabel10.setBounds(200, 270, 120, 17);
 
         txttelinq.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txttelinq.addActionListener(new java.awt.event.ActionListener() {
@@ -181,17 +186,17 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("INICIO CONTRATO");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(200, 170, 124, 17);
+        jLabel11.setBounds(200, 170, 180, 17);
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("GARANTIA");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(10, 270, 80, 17);
+        jLabel12.setBounds(10, 270, 140, 17);
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setText("PADRON");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(200, 350, 80, 17);
+        jLabel13.setBounds(200, 350, 140, 17);
 
         txtpadcasa.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtpadcasa.addActionListener(new java.awt.event.ActionListener() {
@@ -205,12 +210,12 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("ID PROP");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 20, 57, 17);
+        jLabel2.setBounds(10, 20, 120, 17);
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("NUMERO");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 170, 63, 17);
+        jLabel5.setBounds(10, 170, 120, 17);
 
         btnbuscar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnbuscar.setText("BUSCAR INQ");
@@ -262,7 +267,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("NOMBRE PROP.:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(190, 20, 130, 17);
+        jLabel8.setBounds(190, 20, 190, 17);
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton1.setText("GUARDAR");
@@ -277,22 +282,22 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("TIPO ALQUILER");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(10, 220, 105, 17);
+        jLabel9.setBounds(10, 220, 170, 17);
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setText("IMPORTE");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(10, 400, 64, 17);
+        jLabel14.setBounds(10, 400, 120, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("NOMBRE");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 70, 63, 17);
+        jLabel3.setBounds(10, 70, 120, 17);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("DIRECCION");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 120, 78, 17);
+        jLabel4.setBounds(10, 120, 140, 17);
 
         txtimpalq.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtimpalq.addActionListener(new java.awt.event.ActionListener() {
@@ -306,12 +311,12 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("COMISION");
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(200, 400, 90, 17);
+        jLabel15.setBounds(200, 400, 150, 17);
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setText("RETIENE IRPF");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(10, 450, 95, 17);
+        jLabel16.setBounds(10, 450, 160, 17);
 
         cmbirpf.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cmbirpf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "SI", "NO", "OTRO" }));
@@ -326,7 +331,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setText("PRIMER REAJUSTE");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(10, 350, 150, 17);
+        jLabel17.setBounds(10, 350, 210, 17);
 
         txtnroprin.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtnroprin.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -461,7 +466,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel19.setText("ID INQ");
         getContentPane().add(jLabel19);
-        jLabel19.setBounds(100, 20, 43, 17);
+        jLabel19.setBounds(100, 20, 100, 17);
 
         lblnombreprop.setBackground(java.awt.Color.green);
         lblnombreprop.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
@@ -536,6 +541,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         d_clave cla = new d_clave();
         Float importe = 0f;
         Date fecha_ic = new Date();
+        //CONTROL SI RETIENE IRPF
 
         try {
             controlarcampos();
@@ -576,7 +582,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
             inq.setInq_por(con.guardarnumero(txtpor.getText()));
             inq.setInq_plazo(Integer.parseInt(txtplazoinq.getText()));
             inq.setInq_observaciones(txtobservaciones.getText());
-            inq.setInq_irpf(lblirpf.getText());
+            inq.setInq_irpf(cmbirpf.getSelectedItem().toString());
             //inq.setInq_fchcontratoaux(parsefechadate(new Date()));
             inq.setInq_saldo(0f);
             if (esnuevo == false & !txtnominq.getText().equals(inq.getInq_nombre())) {
@@ -773,7 +779,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
 
         if (gas != null) {
             if (gas.getEstado().equals(0)) {
-                gas.setImporte(inq.getInq_impalq_aux() - (revisarentregassaldo(inq.getProp_id(), inq.getInq_casa(), mqp, aqp)));
+                //gas.setImporte(inq.getInq_impalq_aux() - (revisarentregassaldo(inq.getProp_id(), inq.getInq_casa(), mqp, aqp)));//29/10/23 se sacó
                 //BUSCAR SI NO TIENE ALGUN ENTREGA DE SALDO
                 //OPCION -> AL NUEVO IMPORTE RESTARLE ENTREGAS A CUENTA ALQUILER
 
@@ -999,16 +1005,22 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         gas.setAqp(aqp);
         gas.setMqp(mqp);
 
+        if (mqp == 10) {
+            String a = "d";
+        }
+
         if ((mqp >= 5 && aqp == 2020) || (aqp > 2020)) {
             gas = buscargasenlistagastos(gas);
             if (gas != null) {
                 if (gas.getEstado().equals(0)) {
                     //revisar entregas
-                    total = total - (revisarentregassaldo(prop_id, inq_casa, mqp, aqp));
+                    total = gas.getImporte();
+                    //total = total - (revisarentregassaldo(prop_id, inq_casa, mqp, aqp)); se saco 29/10/23
                     gas.setImporte(total);
                     if (gas.getDetalle().equals("SALDO ALQUILER")
                             || gas.getDetalle().equals("ALQUILER")
-                            || gas.getDetalle().equals("ALQUILER MES")) {
+                            || gas.getDetalle().equals("ALQUILER MES")
+                            || gas.getDetalle().equals("SALDO ALQUILER DIAS")) {
                         //revisar entregas
                         gas.actualizarimporte(gas);
                     }
@@ -1153,6 +1165,9 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
 
         mov = buscarultimoimporteantesdelreajuste(inq);
 
+        /*if ((obtenercantAnios(inq.getInq_fechaic(), new Date()) > 1) && (mov == null)) {
+            //HACE MAS DE UN ANIO NO TIENE MOV PREVIO AL REAJUSTE, DEBE INGRESAR CORRECCION
+        }*/
         if (mov != null) {
             total = mov.getEntrada();
             fecharecorrida = "01/" + mov.getMqp() + "/" + mov.getAqp();
@@ -1317,7 +1332,36 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
                 i = i + 1;
             }
         }
+        if ((obtenercantAnios(inq.getInq_fechaic(), new Date()) > 1) && (mov == null)) {
+            //HACE MAS DE UN ANIO NO TIENE MOV PREVIO AL REAJUSTE, DEBE INGRESAR CORRECCION
+            JOptionPane.showMessageDialog(null, toUpperCase("SE ACONSEJA INGRESAR UNA CORRECCION"), "ATENCION", JOptionPane.ERROR_MESSAGE);
+            //p_mov_inq_correccion gas = null;
+
+            /*con.inq = inq;
+            gas = new p_mov_inq_correccion(null, true);
+            gas.setVisible(true);
+             */
+        }
+
         return mov;
+    }
+
+    int obtenercantAnios(Date first, Date last) {
+        Calendar a = getCalendar(first);
+        Calendar b = getCalendar(last);
+        int diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+        if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH)
+                || (a.get(Calendar.MONTH) == b.get(Calendar.MONTH)
+                && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+            diff--;
+        }
+        return diff;
+    }
+
+    public static Calendar getCalendar(Date date) {
+        Calendar cal = Calendar.getInstance(Locale.getDefault());
+        cal.setTime(date);
+        return cal;
     }
 
     d_movimiento buscarmovenlistasoloalquiler(d_movimiento mov, String tabla) throws Exception {
@@ -1553,7 +1597,7 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
                     return;
                 }
                 //}
-                eliminargastos();
+                eliminar_gastos_y_correcciones();
             }
             jdcfechaic.setEnabled(false);
         } catch (Exception e) {
@@ -1561,13 +1605,14 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    void eliminargastos() throws Exception {
+    void eliminar_gastos_y_correcciones() throws Exception {
+        d_alquileres_info alq = new d_alquileres_info();
         d_inquilino inq1 = new d_inquilino();
         d_gastos_inq gas = new d_gastos_inq();
         Integer cantgastos = -1;
 
         cantgastos = gas.cantsaldospendientes(inq.getProp_id(), inq.getInq_casa());
-
+        alq.eliminar_alquiler_info(inq.getProp_id(), inq.getInq_casa());
         if (cantgastos == 0 || cantgastos == -1) {
             inq1.eliminarinquilino(inq.getProp_id(), inq.getInq_casa());
             con.escribirfichero("INQ - se elimina inquilino, id prop: " + gas.getProp_id() + " -- id inq: " + gas.getInq_casa());
@@ -1925,6 +1970,9 @@ public class p_fichainquilino extends javax.swing.JDialog implements observador_
         if (lblirpf.getText().equals("")) {
             throw new Exception("Debe ingresar una opcion para irpf");
         }
+
+        con.controlar_seleccion_irpf(cmbirpf.getSelectedItem().toString());
+        con.controlar_seleccion_tipo_alquiler(cmbtipo.getSelectedItem().toString());
     }
 
     Integer devuelvedia(Date fecha) {

@@ -49,6 +49,27 @@ public class p_alquileres_info {
         c.close();
     }
 
+    public static Boolean tiene_correccion(Integer prop_id, Integer inq_casa) throws Exception {
+        Connection c;
+        p_conexion conex = p_conexion.getInstancia();
+        c = conex.crearconexion();
+        Statement st;
+        ResultSet res;
+
+        try {
+            st = c.createStatement();
+            res = st.executeQuery("select * from alquileres_info where prop_id=" + prop_id + " and inq_casa=" + inq_casa);
+            while (res.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
+        res.close();
+        c.close();
+        return false;
+    }
+    
     public static d_alquileres_info buscar_alquiler_info(Integer prop_id, Integer inq_casa) throws Exception {
         Connection c;
         p_conexion conex = p_conexion.getInstancia();

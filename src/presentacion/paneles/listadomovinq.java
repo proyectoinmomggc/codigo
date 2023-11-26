@@ -127,11 +127,13 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblrecibos = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
+        lbltotalalquiler = new javax.swing.JLabel();
         jdcfecha1 = new com.toedter.calendar.JDateChooser();
         jdcfecha2 = new com.toedter.calendar.JDateChooser();
         copia = new javax.swing.JCheckBox();
         comun = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MOVIMIENTOS DE INQUILINOS");
@@ -162,12 +164,12 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("DESDE");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 120, 47, 17);
+        jLabel1.setBounds(10, 120, 130, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("HASTA");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 120, 70, 17);
+        jLabel3.setBounds(180, 120, 160, 17);
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton1.setText("FILTRAR");
@@ -187,7 +189,7 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("ID PROP");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 20, 57, 17);
+        jLabel4.setBounds(10, 20, 140, 17);
 
         txtprop_id.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtprop_id.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -201,7 +203,7 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("ID INQ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(180, 20, 43, 17);
+        jLabel5.setBounds(180, 20, 130, 17);
 
         txtinq_id.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtinq_id.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -215,7 +217,7 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("NOMBRE");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 70, 63, 17);
+        jLabel6.setBounds(10, 70, 150, 17);
 
         lblnombreinq.setBackground(java.awt.Color.green);
         lblnombreinq.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -231,7 +233,7 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(1074, 440, 138, 30);
+        jButton3.setBounds(1070, 480, 138, 30);
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton2.setText("GENERAR RECIBO");
@@ -241,7 +243,7 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(10, 440, 138, 30);
+        jButton2.setBounds(10, 480, 138, 30);
 
         jButton4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jButton4.setText("VER DETALLE");
@@ -271,7 +273,7 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(1074, 320, 138, 30);
+        jButton6.setBounds(1070, 360, 138, 30);
 
         tblrecibos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -287,32 +289,40 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
         jScrollPane1.setViewportView(tblrecibos);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 320, 1050, 110);
+        jScrollPane1.setBounds(10, 360, 1050, 110);
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setText("RECIBO");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 300, 54, 17);
+        lbltotalalquiler.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbltotalalquiler.setText("0");
+        getContentPane().add(lbltotalalquiler);
+        lbltotalalquiler.setBounds(890, 300, 170, 17);
 
-        jdcfecha1.setDateFormatString("dd/MM/yyyy");
         jdcfecha1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha1);
         jdcfecha1.setBounds(10, 140, 138, 30);
 
-        jdcfecha2.setDateFormatString("dd/MM/yyyy");
         jdcfecha2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         getContentPane().add(jdcfecha2);
         jdcfecha2.setBounds(180, 140, 138, 30);
 
         copia.setText("COPIA");
         getContentPane().add(copia);
-        copia.setBounds(230, 440, 81, 23);
+        copia.setBounds(230, 480, 81, 25);
 
         comun.setText("COMUN");
         getContentPane().add(comun);
-        comun.setBounds(150, 440, 70, 23);
+        comun.setBounds(150, 480, 70, 25);
 
-        setBounds(0, 0, 1243, 520);
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel8.setText("RECIBO");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(10, 340, 140, 17);
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel9.setText("TOTAL POR CONCEPTO ALQUILER ($):");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(590, 300, 290, 17);
+
+        setBounds(0, 0, 1243, 569);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblmovimientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblmovimientosMouseClicked
@@ -369,6 +379,7 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
             param.put("fecha2", fecha2);
             param.put("prop_id", prop_id);
             param.put("inq_id", inq_id);
+            param.put("total", lbltotalalquiler.getText());
             JasperPrint jasperprint = JasperFillManager.fillReport(reporte, param, c);
             //donde dice 'null' va el parametro, si es utilizado
             //this.setVisible(false);
@@ -615,6 +626,7 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
                 //v.add(saldo);
                 mdltabmov.addRow(v);
             }
+            lbltotalalquiler.setText(con.mostrarnumero(mov.totalmovimientosentrefechaseinq(prop_id, inq_id, fecha1, fecha2)));
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -752,12 +764,14 @@ public class listadomovinq extends javax.swing.JDialog implements observador_mov
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private com.toedter.calendar.JDateChooser jdcfecha1;
     private com.toedter.calendar.JDateChooser jdcfecha2;
     private javax.swing.JLabel lblnombreinq;
+    private javax.swing.JLabel lbltotalalquiler;
     private javax.swing.JTable tblmovimientos;
     private javax.swing.JTable tblrecibos;
     private javax.swing.JTextField txtinq_id;

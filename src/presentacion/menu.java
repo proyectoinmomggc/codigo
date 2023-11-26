@@ -20,7 +20,6 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
-import org.datacontract.schemas._2004._07.sicfecontract.SICFERespuestaBuffer;
 import org.datacontract.schemas._2004._07.sicfecontract.SICFERespuestaPing;
 import presentacion.paneles.listadoinqatrasados;
 import presentacion.paneles.listadomovinq;
@@ -32,6 +31,7 @@ import presentacion.paneles.p_configuracion;
 import presentacion.paneles.p_control;
 import presentacion.paneles.p_ejecutar_funcion_mensual;
 import presentacion.paneles.p_emitir_factura;
+import presentacion.paneles.p_emitir_factura_dolares;
 import presentacion.paneles.p_fichapropietario;
 import presentacion.paneles.p_fichainquilino;
 import presentacion.paneles.p_listado_facturas_emitidas;
@@ -105,6 +105,7 @@ public final class menu extends javax.swing.JFrame {
         jMenu36 = new javax.swing.JMenu();
         jMenu37 = new javax.swing.JMenu();
         jMenu33 = new javax.swing.JMenu();
+        jMenu42 = new javax.swing.JMenu();
         jMenu32 = new javax.swing.JMenu();
         jMenu40 = new javax.swing.JMenu();
         jMenu41 = new javax.swing.JMenu();
@@ -125,7 +126,7 @@ public final class menu extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel1.setText("8.1");
+        jLabel1.setText("8.9");
 
         lbldgi.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbldgi.setForeground(java.awt.Color.red);
@@ -376,6 +377,19 @@ public final class menu extends javax.swing.JFrame {
         });
         jMenu36.add(jMenu33);
 
+        jMenu42.setText("EMITIR FACTURA DOLARES");
+        jMenu42.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu42MouseClicked(evt);
+            }
+        });
+        jMenu42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu42ActionPerformed(evt);
+            }
+        });
+        jMenu36.add(jMenu42);
+
         jMenu27.add(jMenu36);
 
         jMenu32.setText("RECIBO O RESGUARDO");
@@ -509,8 +523,8 @@ public final class menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbldgi, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
+                .addComponent(lbldgi, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -1007,6 +1021,15 @@ public final class menu extends javax.swing.JFrame {
         p_lstdocumentos mov = new p_lstdocumentos();
         mov.setVisible(true);
     }//GEN-LAST:event_jMenu41MouseClicked
+
+    private void jMenu42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu42ActionPerformed
+        
+    }//GEN-LAST:event_jMenu42ActionPerformed
+
+    private void jMenu42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu42MouseClicked
+        p_emitir_factura_dolares mov = new p_emitir_factura_dolares(null, true);
+        mov.setVisible(true);
+    }//GEN-LAST:event_jMenu42MouseClicked
 
     void reiniciarimpalquiler() throws Exception {
         d_inquilino inq = new d_inquilino();
@@ -1679,6 +1702,7 @@ public final class menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu40;
     private javax.swing.JMenu jMenu41;
+    private javax.swing.JMenu jMenu42;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu50;
     private javax.swing.JMenu jMenu51;

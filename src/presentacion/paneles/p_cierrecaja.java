@@ -5,34 +5,25 @@
  */
 package presentacion.paneles;
 
-import com.itextpdf.text.pdf.PdfWriter;
 import dominio.d_clave;
 import dominio.d_configuracion;
-import dominio.d_parametroscfe;
 import java.awt.Desktop;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.PropertyException;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
-import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
+/*
 import org.datacontract.schemas._2004._07.sicfecontract.DatosCantidadCFE;
 import org.datacontract.schemas._2004._07.sicfecontract.DatosMontoVenta;
 import org.datacontract.schemas._2004._07.sicfecontract.DatosResumenCAE;
 import org.datacontract.schemas._2004._07.sicfecontract.DatosResumenCFE;
 import org.datacontract.schemas._2004._07.sicfecontract.SICFERespuestaInformeCierreDeCaja;
+*/
+
 
 /**
  *
@@ -71,6 +62,7 @@ public class p_cierrecaja extends javax.swing.JDialog implements Serializable {
         jLabel16 = new javax.swing.JLabel();
         txtclave = new javax.swing.JPasswordField();
         jdcfecha = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("OBTENER CIERRE DE CAJA");
@@ -102,10 +94,17 @@ public class p_cierrecaja extends javax.swing.JDialog implements Serializable {
         getContentPane().add(jdcfecha);
         jdcfecha.setBounds(10, 40, 138, 30);
 
-        setBounds(0, 0, 325, 169);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.red);
+        jLabel1.setText("*FUNCION ELIMINADA POR DGI*");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 140, 310, 20);
+
+        setBounds(0, 0, 387, 212);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnobtenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnobtenerActionPerformed
+        /*
         SICFERespuestaInformeCierreDeCaja caja = new SICFERespuestaInformeCierreDeCaja();
         d_parametroscfe pcfe = new d_parametroscfe();
         String nomusuario = "";
@@ -139,32 +138,39 @@ public class p_cierrecaja extends javax.swing.JDialog implements Serializable {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, toUpperCase(ex.getMessage()), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        */
     }//GEN-LAST:event_btnobtenerActionPerformed
 
+    /*
     private static SICFERespuestaInformeCierreDeCaja obtenerCierreDeCaja(java.lang.String nomusuario,
             java.lang.String clave, java.lang.String tenant, java.lang.String operador,
             java.lang.String puntoVenta, java.lang.Short sucursal,
             javax.xml.datatype.XMLGregorianCalendar fecha) {
+        
         org.tempuri.ImpSICFEEmisor service = new org.tempuri.ImpSICFEEmisor();
         org.tempuri.ISICFEEmisor port = service.getBasicHttpBindingISICFEEmisor();
         return port.obtenerCierreDeCaja(nomusuario, clave, tenant, operador, puntoVenta, sucursal, fecha);
+        
+        return null;
     }
-
+*/
     public static XMLGregorianCalendar getXmlGregorianCalendarFromDate(final Date date) throws DatatypeConfigurationException {
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.setTime(date);
         return DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
     }
-
+/*
     void pdf(SICFERespuestaInformeCierreDeCaja obtenerCierre) throws FileNotFoundException, IOException, PropertyException, JAXBException, Exception {
+        
         JAXBElement<SICFERespuestaInformeCierreDeCaja> jaxbElement = new JAXBElement(
                 new QName(SICFERespuestaInformeCierreDeCaja.class.getSimpleName()), SICFERespuestaInformeCierreDeCaja.class, obtenerCierre);
 
         SICFERespuestaInformeCierreDeCaja cdj = jaxbElement.getValue();
-
+        
         crearpdf(cdj);
+        
     }
-
+*/
     public void abrir() throws Exception {
         if (nombrepdf.equals("")) {
             return;
@@ -172,7 +178,7 @@ public class p_cierrecaja extends javax.swing.JDialog implements Serializable {
         File path = new File(nombrepdf);
         Desktop.getDesktop().open(path);
     }
-
+/*
     void crearpdf(SICFERespuestaInformeCierreDeCaja cdj) throws Exception {
         List<DatosCantidadCFE> listadatoscantidadcfe = cdj.getInforme().getValue().getCantidadesCFE().getValue().getDatosCantidadCFE();
         List<DatosResumenCAE> listadatosresumencae = cdj.getInforme().getValue().getNumeracionUtilizada().getValue().getDatosResumenCAE();
@@ -432,7 +438,7 @@ public class p_cierrecaja extends javax.swing.JDialog implements Serializable {
         documento.close();
         //JOptionPane.showMessageDialog(null, "Archivo PDF creado correctamente", "Información", 1);
     }
-
+*/
     Date parsefechadate(Date fecha) throws Exception {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Date fechaDate = null;
@@ -526,6 +532,7 @@ public class p_cierrecaja extends javax.swing.JDialog implements Serializable {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnobtener;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private com.toedter.calendar.JDateChooser jdcfecha;

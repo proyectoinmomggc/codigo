@@ -80,12 +80,12 @@ public class p_agregar_correccion extends javax.swing.JDialog implements observa
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("MES");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 80, 120, 17);
+        jLabel3.setBounds(10, 80, 140, 17);
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("AÑO");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(170, 80, 120, 17);
+        jLabel5.setBounds(170, 80, 140, 17);
 
         btnactualizar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnactualizar.setText("AGREGAR");
@@ -106,7 +106,7 @@ public class p_agregar_correccion extends javax.swing.JDialog implements observa
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setText("IMPORTE");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(10, 20, 70, 17);
+        jLabel17.setBounds(10, 20, 90, 17);
 
         txtmes.setEditable(false);
         txtmes.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N

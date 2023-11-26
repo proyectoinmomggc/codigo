@@ -143,9 +143,8 @@ float montototal = 0f;
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("FECHA");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(190, 20, 47, 17);
+        jLabel7.setBounds(190, 20, 100, 17);
 
-        jdcfecha.setDateFormatString("dd/MM/yyyy");
         jdcfecha.setEnabled(false);
         jdcfecha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         getContentPane().add(jdcfecha);

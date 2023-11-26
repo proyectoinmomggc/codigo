@@ -151,7 +151,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("HASTA");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(20, 280, 45, 17);
+        jLabel8.setBounds(20, 280, 60, 17);
 
         txtpropid.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtpropid.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +179,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("IMPORTE");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(250, 210, 64, 17);
+        jLabel3.setBounds(250, 210, 130, 17);
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("MQP");
@@ -198,7 +198,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("ID INQ");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(10, 70, 43, 17);
+        jLabel12.setBounds(10, 70, 140, 17);
 
         txtimporte.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtimporte.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -246,7 +246,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("TIPO");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(250, 260, 32, 17);
+        jLabel5.setBounds(250, 260, 100, 17);
 
         cmbtipo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         cmbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "REINTEGRO", "CONVENIO" }));
@@ -261,14 +261,14 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("ID PROP");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 20, 57, 17);
+        jLabel1.setBounds(10, 20, 150, 17);
         getContentPane().add(txtclave);
         txtclave.setBounds(10, 340, 138, 30);
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setText("CLAVE");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(10, 320, 70, 17);
+        jLabel16.setBounds(10, 320, 140, 17);
 
         txtaqp.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtaqp.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -291,12 +291,12 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("AQP");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(150, 210, 29, 17);
+        jLabel10.setBounds(150, 210, 60, 17);
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("AQP");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(150, 260, 29, 17);
+        jLabel11.setBounds(150, 260, 60, 17);
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setText("MQP");
@@ -306,7 +306,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setText("DESDE");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(20, 230, 47, 17);
+        jLabel14.setBounds(20, 230, 60, 17);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RANGO DE FECHAS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -333,7 +333,7 @@ public class p_reintegroconvenio extends javax.swing.JDialog {
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 555, 441);
+        setBounds(0, 0, 555, 459);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtpropidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpropidActionPerformed

@@ -21,14 +21,19 @@
     <system systemId="http://sicfe.eborne.com.uy/PROD/Services/sicfe.svc?xsd=xsd1" uri="wsdl/sicfe.eborne.com.uy/PROD/Services/sicfe.svc.xsd_xsd1.xsd"/>
     <system systemId="http://sicfe.eborne.com.uy/PROD/Services/sicfe.svc?xsd=xsd2" uri="wsdl/sicfe.eborne.com.uy/PROD/Services/sicfe.svc.xsd_xsd2.xsd"/>
     <system systemId="http://sicfe.eborne.com.uy/PROD/Services/sicfe.svc?xsd=xsd3" uri="wsdl/sicfe.eborne.com.uy/PROD/Services/sicfe.svc.xsd_xsd3.xsd"/>
+    <system systemId="https://cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsbcucotizaciones?wsdl" uri="xml-resources/web-service-references/awsbcucotizaciones/wsdl/cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsbcucotizaciones.wsdl"/>
+    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc?wsdl" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc.wsdl"/>
+    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd0" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd0.xsd"/>
+    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd1" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd1.xsd"/>
+    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd3" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd3.xsd"/>
+    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd2" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd2.xsd"/>
+    <system systemId="file:/C:/Users/e274263/Desktop/Sicfe_1.wsdl" uri="xml-resources/web-service-references/Sicfe_1/wsdl/Sicfe_1.wsdl"/>
+    <system systemId="file:/C:/Users/e274263/Desktop/Sicfe.wsdl" uri="wsdl/Sicfe.wsdl"/>
+    <system systemId="file:/C:/Users/Lenovo/Desktop/Sicfe.wsdl" uri="wsdl/Sicfe.wsdl"/>
+    <system systemId="https://sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc?wsdl" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc.wsdl"/>
     <system systemId="http://sicfe.eborne.com.uy:89/PROD/Services/Sicfe.svc?wsdl" uri="wsdl/sicfe.eborne.com.uy_89/PROD/Services/Sicfe.svc.wsdl"/>
     <system systemId="http://sicfe.eborne.com.uy:89/PROD/Services/sicfe.svc?xsd=xsd0" uri="wsdl/sicfe.eborne.com.uy_89/PROD/Services/sicfe.svc.xsd_xsd0.xsd"/>
     <system systemId="http://sicfe.eborne.com.uy:89/PROD/Services/sicfe.svc?xsd=xsd1" uri="wsdl/sicfe.eborne.com.uy_89/PROD/Services/sicfe.svc.xsd_xsd1.xsd"/>
     <system systemId="http://sicfe.eborne.com.uy:89/PROD/Services/sicfe.svc?xsd=xsd2" uri="wsdl/sicfe.eborne.com.uy_89/PROD/Services/sicfe.svc.xsd_xsd2.xsd"/>
     <system systemId="http://sicfe.eborne.com.uy:89/PROD/Services/sicfe.svc?xsd=xsd3" uri="wsdl/sicfe.eborne.com.uy_89/PROD/Services/sicfe.svc.xsd_xsd3.xsd"/>
-    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc?wsdl" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/Sicfe.svc.wsdl"/>
-    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd0" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd0.xsd"/>
-    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd1" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd1.xsd"/>
-    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd2" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd2.xsd"/>
-    <system systemId="http://sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc?xsd=xsd3" uri="wsdl/sicfedesa.eborne.com.uy/TEST/Services/sicfe.svc.xsd_xsd3.xsd"/>
 </catalog>

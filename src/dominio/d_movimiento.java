@@ -184,7 +184,7 @@ public class d_movimiento {
     public Boolean existesalidaanda(d_movimiento mov) throws Exception {
         return p_movimientos.existesalidaanda(mov);
     }
-    
+
     public Boolean tiene_recibo(Integer id) throws Exception {
         return p_movimientos.tiene_recibo(id);
     }
@@ -193,6 +193,11 @@ public class d_movimiento {
         Integer idobtenido = -1;
         idobtenido = p_movimientos.ultimoid();
         return idobtenido;
+    }
+    //cantidad_movimientos_alquiler_para_una_fecha
+    
+    public int cantidad_movimientos_alquiler_para_una_fecha(d_movimiento m) throws Exception {
+        return p_movimientos.cantidad_movimientos_alquiler_para_una_fecha(m);
     }
     
     public Integer minimoid() throws Exception {
@@ -300,6 +305,17 @@ public class d_movimiento {
             throw new Exception(ex.getMessage());
         }
         return lista;
+    }
+
+    public Float totalmovimientosentrefechaseinq(Integer prop_id, Integer inq_id, Date fecha1, Date fecha2) throws Exception {
+        Float total = 0f;
+
+        try {
+            total = p_movimientos.totalmovimientosentrefechaseinq(prop_id, inq_id, fecha1, fecha2);
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+        return total;
     }
 
     public List<d_movimiento> listarmovimientosentrefechasypro(Integer prop_id, Date fecha1, Date fecha2) throws Exception {
@@ -430,6 +446,15 @@ public class d_movimiento {
 
         return saldo;
     }
+    //totalentregassaldo_no_alquiler
+
+    public Float totalentregassaldo_no_alquiler(int prop_id, int inq_casa, int mqp, int aqp, String detalle) throws Exception {
+        Float saldo = 0f;
+
+        saldo = p_movimientos.totalentregassaldo_no_alquiler(prop_id, inq_casa, mqp, aqp, detalle);
+
+        return saldo;
+    }
 
     public Float obtenersaldoprophastafecha(Integer prop_id, Date fecha, Float irpf) throws Exception {
         Float saldo = 0.0f;
@@ -440,7 +465,7 @@ public class d_movimiento {
     }
 
     public Float obtenertotalirpfpormes(Integer prop_id, Integer mqp, Integer aqp) throws Exception {
-        Float saldo = 0.0f;
+        Float saldo = 0f;
 
         saldo = p_movimientos.obtenertotalirpfpormes(prop_id, mqp, aqp);
 

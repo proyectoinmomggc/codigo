@@ -156,7 +156,7 @@ public final class p_pruebaexcel extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("PROCESANDO MES:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 40, 140, 17);
+        jLabel7.setBounds(10, 40, 200, 17);
 
         tblinquilinos.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tblinquilinos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,7 +184,7 @@ public final class p_pruebaexcel extends javax.swing.JFrame {
         lblmes.setForeground(java.awt.Color.red);
         lblmes.setText("-");
         getContentPane().add(lblmes);
-        lblmes.setBounds(160, 40, 210, 17);
+        lblmes.setBounds(230, 40, 350, 17);
 
         btningresar.setText("INGRESAR");
         btningresar.addActionListener(new java.awt.event.ActionListener() {

@@ -1,0 +1,52 @@
+[15:10:38 29/10/2023]
+INQ - se elimina inquilino y deudas, id prop: null -- id inq: null
+------------------------------------------------------------------------
+[15:11:13 29/10/2023]
+INQ - se edita inquilino, id prop: 684 -- id inq.: 1 -- nombre: A -- direccion: A -- telefono: 21 -- tipo alq.: HABITACION -- fecha IC.: 24/10/2023 -- garantia: A -- padron: 123 -- imp. alq.: 16.000,00 -- porc.: 5,00 -- plazo: 2 -- obs.: A -- irpf: SI
+------------------------------------------------------------------------
+[15:11:19 29/10/2023]
+INQ - se ingresa gasto a cuenta id prop: 684 -- id inq: 1 -- mqp: 10 -- aqp: 2023 -- detalle: ALQUILER DIAS -- importe: 3.612,90
+------------------------------------------------------------------------
+[16:34:22 29/10/2023]
+se ingresa movimiento, id prop.: 684 -- id inq.: 1 -- mqp: 10 -- aqp: 2023 -- detalle: SALDO ALQUILER DIAS -- entrada: 945,90 -- salida: 0,00 -- comision: 75,67 -- iva: 16,65 -- tipo: FERNANDEZ DELLA MEA, FEDERICO -- fecha: 29/10/2023 -- irpf: 0,00 -- irpf tipo: SI -- tipo de pago: CAJA
+------------------------------------------------------------------------
+[16:34:22 29/10/2023]
+PROP - se actualiza saldo a cuenta id prop: 684 -- total: 2980.28
+------------------------------------------------------------------------
+[16:34:23 29/10/2023]
+PROP - se actualiza saldo a cuenta id prop: 684 -- total: 2980.28
+------------------------------------------------------------------------
+[16:40:43 29/10/2023]
+FUNCION MENSUAL EJECUTADA
+------------------------------------------------------------------------
+[16:50:49 29/10/2023]
+se ingresa movimiento, id prop.: 684 -- id inq.: 1 -- mqp: 10 -- aqp: 2023 -- detalle: A CUENTA: SALDO ALQUILER DIAS -- entrada: 45,00 -- salida: 0,00 -- comision: 3,60 -- iva: 0,79 -- tipo: FERNANDEZ DELLA MEA, FEDERICO -- fecha: 29/10/2023 -- irpf: 0,00 -- irpf tipo: SI -- tipo de pago: CAJA
+------------------------------------------------------------------------
+[16:50:49 29/10/2023]
+PROP - se actualiza saldo a cuenta id prop: 684 -- total: 2167.31
+------------------------------------------------------------------------
+[16:50:50 29/10/2023]
+PROP - se actualiza saldo a cuenta id prop: 684 -- total: 2167.31
+------------------------------------------------------------------------
+[16:52:13 29/10/2023]
+INQ - se edita fecha inicio alquiler y realiza funcion mensual, id prop: 684 -- id inq.: 1 -- fecha inicio anterior: 24/11/2023 -- fecha inicio actual: 24/10/2023
+------------------------------------------------------------------------
+[16:52:13 29/10/2023]
+INQ - se eliminan correcciones, para inq con id prop: 684 -- id inq.: 1
+------------------------------------------------------------------------
+[16:52:13 29/10/2023]
+INQ - se realiza funcion mensual, para inq con id prop: 684 -- id inq.: 1
+------------------------------------------------------------------------
+[16:52:13 29/10/2023]
+INQ - se edita inquilino, id prop: 684 -- id inq.: 1 -- nombre: FERNANDEZ DELLA MEA, FEDERICO -- direccion: BARRIO IC 24 25-2223 AP06 -- telefono: 98824317 -- tipo alq.: HABITACION -- fecha IC.: 24/10/2023 -- garantia: MAPFRE
+(echarri) -- padron: 19218 -- imp. alq.: 16.000,00 -- porc.: 8,00 -- plazo: 2 -- obs.: debe 50 % contrato $8000 -- irpf: SI
+------------------------------------------------------------------------
+[17:00:07 29/10/2023]
+se ingresa movimiento, id prop.: 359 -- id inq.: 43 -- mqp: 5 -- aqp: 2020 -- detalle: A CUENTA: SALDO TASA MUNICIPAL -- entrada: 52,00 -- salida: 0,00 -- comision: 3,12 -- iva: 0,69 -- tipo: DA SILVA BAZAN, MONICA GABRIELA -- fecha: 29/10/2023 -- irpf: 0,00 -- irpf tipo: OTRO -- tipo de pago: CAJA
+------------------------------------------------------------------------
+[17:00:07 29/10/2023]
+PROP - se actualiza saldo a cuenta id prop: 359 -- total: 232150.73
+------------------------------------------------------------------------
+[17:00:09 29/10/2023]
+PROP - se actualiza saldo a cuenta id prop: 359 -- total: 232150.73
+------------------------------------------------------------------------

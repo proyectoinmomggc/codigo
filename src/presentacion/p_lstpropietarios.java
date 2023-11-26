@@ -139,7 +139,7 @@ public class p_lstpropietarios extends javax.swing.JFrame implements observador_
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("ORDEN");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 20, 50, 17);
+        jLabel2.setBounds(10, 20, 130, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("FILTRO");
